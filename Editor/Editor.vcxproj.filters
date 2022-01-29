@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Editor">
+      <UniqueIdentifier>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\EditorWindow">
+      <UniqueIdentifier>{3A91A9A8-A6F2-86B6-2F60-CD689BC0BD75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels">
+      <UniqueIdentifier>{5E756613-CA35-E249-9370-2BC7FFEF2626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\AssetBrowser">
+      <UniqueIdentifier>{F1742CAC-DD84-D87C-463E-3D9B326DC715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\Console">
+      <UniqueIdentifier>{800A454F-EC76-004A-B56A-98A7219622B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\GameViewport">
+      <UniqueIdentifier>{C79CBE45-B3AC-6A16-1C66-CF34089559AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\Inspector">
+      <UniqueIdentifier>{A49B847C-10D3-CC13-19DD-30378593F30C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\MenuBar">
+      <UniqueIdentifier>{B72BB839-2398-7334-EC8B-0B9258B7959C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\Profiler">
+      <UniqueIdentifier>{7080931F-5C7A-BC71-45E7-5282318022DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\Resources">
+      <UniqueIdentifier>{48686845-B49F-B0DC-BDA9-14002960D7D5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\SceneHierarchy">
+      <UniqueIdentifier>{DAE2F0C1-C69D-E06D-6F55-59B85BEF2AFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Panels\SceneViewport">
+      <UniqueIdentifier>{FBE73966-67F5-674C-F0DB-63375CE83303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Window">
+      <UniqueIdentifier>{F3514B24-5F12-C75A-284D-10D894CC0B37}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Editor\EditorWindow\Editor.h">
+      <Filter>Editor\EditorWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\AssetBrowser\AssetBrowser.h">
+      <Filter>Editor\Panels\AssetBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\Console\Console.h">
+      <Filter>Editor\Panels\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\GameViewport\GameViewport.h">
+      <Filter>Editor\Panels\GameViewport</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\Inspector\Inspector.h">
+      <Filter>Editor\Panels\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\MenuBar\Menubar.h">
+      <Filter>Editor\Panels\MenuBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\Profiler\Profiler.h">
+      <Filter>Editor\Panels\Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\Resources\Resources.h">
+      <Filter>Editor\Panels\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\SceneHierarchy\SceneHierarchy.h">
+      <Filter>Editor\Panels\SceneHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Panels\SceneViewport\SceneViewport.h">
+      <Filter>Editor\Panels\SceneViewport</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\Window\Window.h">
+      <Filter>Editor\Window</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Editor\EditorWindow\Editor.cpp">
+      <Filter>Editor\EditorWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\AssetBrowser\AssetBrowser.cpp">
+      <Filter>Editor\Panels\AssetBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\Console\Console.cpp">
+      <Filter>Editor\Panels\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\GameViewport\GameViewport.cpp">
+      <Filter>Editor\Panels\GameViewport</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\Inspector\Inspector.cpp">
+      <Filter>Editor\Panels\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\MenuBar\Menubar.cpp">
+      <Filter>Editor\Panels\MenuBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\Profiler\Profiler.cpp">
+      <Filter>Editor\Panels\Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\Resources\Resources.cpp">
+      <Filter>Editor\Panels\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp">
+      <Filter>Editor\Panels\SceneHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Panels\SceneViewport\SceneViewport.cpp">
+      <Filter>Editor\Panels\SceneViewport</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\Window\Window.cpp">
+      <Filter>Editor\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+</Project>
