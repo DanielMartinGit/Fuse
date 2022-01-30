@@ -30,7 +30,12 @@ namespace Fuse
 
 		public:
 			inline static int m_DrawCalls;
+			inline static int m_Vertices;
+			inline static int m_Indices;
+
 			inline static int GetDrawcalls() { return m_DrawCalls; }
+			inline static int GetTotalVertices() { return m_Vertices; }
+			inline static int GetTotalIndices() { return m_Indices; }
 
 		private:
 			static void InitialiseBuffers();

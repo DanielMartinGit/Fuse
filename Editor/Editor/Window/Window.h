@@ -9,6 +9,7 @@
 
 #include <string>
 #include <iostream>
+#include "../../../Fuse/Theme/ImGuiTheme.h"
 
 namespace Fuse
 {
@@ -56,6 +57,9 @@ namespace Fuse
 
 		private:
 			GLFWwindow* m_Window;
+
+		private:
+			Fuse::Style m_EditorTheme;
 
 		private:
 			std::vector<Fuse::Layer> m_Layers;

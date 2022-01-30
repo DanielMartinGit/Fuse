@@ -37,7 +37,6 @@ void Fuse::Editor::RenderEditor()
 
 	ImVec2 vWindowSize = ImGui::GetMainViewport()->Size;
 	ImVec2 vPos0 = ImGui::GetMainViewport()->Pos;
-	ImGui::GetStyle().WindowMenuButtonPosition = ImGuiDir_None;
 
 	ImGui::SetWindowPos(ImVec2((float)vPos0.x, (float)vPos0.y), ImGuiCond_Always);
 	ImGui::SetWindowSize(ImVec2((float)vWindowSize.x, (float)vWindowSize.y), ImGuiCond_Always);

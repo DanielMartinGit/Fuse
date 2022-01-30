@@ -40,6 +40,8 @@ void Fuse::Renderer2D::InitialiseBuffers()
 
 void Fuse::Renderer2D::Bind()
 {
+	m_Indices = 0;
+	m_Vertices = 0;
 	m_DrawCalls = 0;
 	m_FrameBuffer.Bind();
 }
@@ -62,6 +64,9 @@ void Fuse::Renderer2D::DrawSprite(Fuse::Transform& transform, uint32_t& texture)
 	glBindVertexArray(0);
 
 	++m_DrawCalls;
+
+	m_Indices += 3;
+	m_Vertices += 8;
 }
 
 void Fuse::Renderer2D::Unbind()

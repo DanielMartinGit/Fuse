@@ -5,6 +5,8 @@
 
 namespace Fuse
 {
+	enum class m_EntityOptions { EmptyEntity, Entity, Sprite };
+
 	class SceneHierarchy : public Fuse::Panel
 	{
 		public:
@@ -13,6 +15,8 @@ namespace Fuse
 
 		public:
 			void OnImGuiRender() override;
+			void ShowEntityOptions();
+			void CreateEntity(m_EntityOptions entityTypes);
 
 		public:
 			static entt::entity* GetSelectedEntity() { return m_SelectedEntity; }
@@ -21,6 +25,9 @@ namespace Fuse
 			inline static entt::entity* m_SelectedEntity;
 
 		private:
+			m_EntityOptions m_EntityTypes;
+
+			bool m_ShowEntityOptions;
 			int m_EntityCount;
 
 			int m_SelectableBools[100000];

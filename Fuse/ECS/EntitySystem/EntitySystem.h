@@ -27,7 +27,24 @@ namespace Fuse
 				OnComponentAdded<Fuse::Transform>(entity);
 
 				GetComponent<Fuse::Entity>(entity).SetEntityName("Entity " + std::to_string(m_EntityCount));
-				GetComponent<Fuse::Entity>(entity).SetEntityID(m_EntityCount);
+				GetComponent<Fuse::Entity>(entity).SetEntityID(uint32_t(entity));
+
+				++m_EntityCount;
+				return entity;
+			}
+
+			static entt::entity& OnEntityAddedWithTransformAndSprite()
+			{
+				auto entity = m_World->create();
+
+				Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Entity Added to Scene");
+
+				OnComponentAdded<Fuse::Entity>(entity);
+				OnComponentAdded<Fuse::Transform>(entity);
+				OnComponentAdded<Fuse::SpriteRenderer2D>(entity);
+
+				GetComponent<Fuse::Entity>(entity).SetEntityName("Entity " + std::to_string(m_EntityCount));
+				GetComponent<Fuse::Entity>(entity).SetEntityID(uint32_t(entity));
 
 				++m_EntityCount;
 				return entity;
@@ -48,7 +65,7 @@ namespace Fuse
 				return entity;
 			}
 
-			template<class T>
+			template<typename T>
 			static void OnComponentAdded(entt::entity& entity)
 			{
 				bool hasComponent = m_World->any_of<T>(entity);
@@ -64,7 +81,7 @@ namespace Fuse
 				}
 			}
 
-			template<class T>
+			template<typename T>
 			static void OnComponentRemoved(entt::entity& entity)
 			{
 				bool hasComponent = m_World->any_of<T>(entity);

@@ -2,8 +2,8 @@
 
 Fuse::Inspector::Inspector()
 {
-	m_CurrentItem = m_ComponentText[0];
-	m_DisplayComponents = false;
+	m_CurrentItem = "";
+	m_Components = m_ComponentTypes::None;
 }
 Fuse::Inspector::~Inspector() {}
 
@@ -12,8 +12,12 @@ void Fuse::Inspector::OnImGuiRender()
 	ImGui::Begin("Inspector", &GetActiveState());
 
 	ShowEntityComponents();
-	ShowComponentsMenu();
-	
+
+	if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0))
+	{
+		m_DisplayComponents = false;
+	}
+
 	ImGui::End();
 }
 
@@ -23,50 +27,55 @@ void Fuse::Inspector::ShowEntityComponents()
 	{
 		ShowComponents();
 
-		if (ImGui::Button("Add Component", ImVec2(ImGui::GetWindowSize().x, 25)))
+		if (ImGui::Button("Add Component", ImVec2(ImGui::GetWindowSize().x, 20)))
 		{
 			m_DisplayComponents = true;
 		}
+
+		if (m_DisplayComponents)
+			ShowComponentsMenu();
 	}
 }
 
 void Fuse::Inspector::ShowComponentsMenu()
 {
-	if (m_DisplayComponents)
+	if(ImGui::BeginCombo("##Components", ""))
 	{
-		if (ImGui::BeginCombo("##Components", m_CurrentItem))
+		if (ImGui::Selectable("Transform"))
+			AddComponentToEntity(m_ComponentTypes::Transform);
+
+		if (ImGui::Selectable("Sprite Renderer2D"))
+			AddComponentToEntity(m_ComponentTypes::SpriteRenderer2D);
+
+		if (ImGui::Selectable("Box Collider2D"))
+			AddComponentToEntity(m_ComponentTypes::BoxCollider2D);
+
+		ImGui::EndCombo();
+	}
+}
+
+void Fuse::Inspector::AddComponentToEntity(m_ComponentTypes component)
+{
+	switch (component)
+	{
+		case m_ComponentTypes::Transform:
 		{
-			m_CurrentItem = "";
-
-			for (int component = 0; component < IM_ARRAYSIZE(m_ComponentText); ++component)
-			{
-				bool isSelected = (m_CurrentItem == m_ComponentText[component]);
-
-				if (ImGui::Selectable(m_ComponentText[component], isSelected))
-					m_CurrentItem = m_ComponentText[component];
-
-				if (isSelected)
-					ImGui::SetItemDefaultFocus();
-			}
-
-			if (m_CurrentItem == "Transform")
-			{
-				Fuse::EntitySystem::OnComponentAdded<Fuse::Transform>(*Fuse::SceneHierarchy::GetSelectedEntity());
-				m_DisplayComponents = false;
-			}
-			else if (m_CurrentItem == "Sprite Renderer2D")
-			{
-				Fuse::EntitySystem::OnComponentAdded<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
-				m_DisplayComponents = false;
-			}
-			else if (m_CurrentItem == "Box Collider2D")
-			{
-				Fuse::EntitySystem::OnComponentAdded<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
-				m_DisplayComponents = false;
-			}
-
-			ImGui::EndCombo();
+			Fuse::EntitySystem::OnComponentAdded<Fuse::Transform>(*Fuse::SceneHierarchy::GetSelectedEntity());
+			m_DisplayComponents = false;
 		}
+			break;
+		case m_ComponentTypes::SpriteRenderer2D:
+		{
+			Fuse::EntitySystem::OnComponentAdded<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+			m_DisplayComponents = false;
+		}
+			break;
+		case m_ComponentTypes::BoxCollider2D:
+		{
+			Fuse::EntitySystem::OnComponentAdded<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+			m_DisplayComponents = false;
+		}
+			break;
 	}
 }
 
@@ -77,8 +86,8 @@ void Fuse::Inspector::ShowComponents()
 		auto entityComponent = Fuse::EntitySystem::GetComponent<Fuse::Entity>(*Fuse::SceneHierarchy::GetSelectedEntity());
 
 		std::string entityNameText = "Name: ";
-		std::string entityID = "ID: ";
 		std::string entityTag = "Tag: ";
+		std::string entityID = "ID: ";
 
 		entityNameText.append(entityComponent.GetEntityName().c_str());
 		entityID.append(std::to_string(entityComponent.GetEntityID()));
@@ -121,13 +130,13 @@ void Fuse::Inspector::ShowComponents()
 	{
 		auto& spriteComponent = Fuse::EntitySystem::GetComponent<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
 
-		if (ImGui::TreeNode("Sprite Renderer2D"))
+		if (ImGui::TreeNode("SpriteRenderer2D"))
 		{
 			if (ImGui::Button("X", ImVec2(25, 25)))
 			{
 				Fuse::EntitySystem::OnComponentRemoved<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
 			}
-
+			ImGui::SameLine();
 			ImGui::Checkbox("Active", &spriteComponent.GetActiveState());
 			ImGui::ImageButton((ImTextureID)spriteComponent.GetTexture(), ImVec2(25, 25));
 
@@ -139,7 +148,7 @@ void Fuse::Inspector::ShowComponents()
 	{
 		auto& boxColliderComponent = Fuse::EntitySystem::GetComponent<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
 
-		if (ImGui::TreeNode("Box Collider2D"))
+		if (ImGui::TreeNode("BoxCollider2D"))
 		{
 			if (ImGui::Button("X", ImVec2(25, 25)))
 			{
@@ -149,7 +158,7 @@ void Fuse::Inspector::ShowComponents()
 			ImGui::Checkbox("Active", &boxColliderComponent.GetActiveState());
 
 			float collisionBounds[2] = { boxColliderComponent.GetColliderBounds().x, boxColliderComponent.GetColliderBounds().y };
-			ImGui::DragFloat2("Collision Bounds", collisionBounds);
+			ImGui::DragFloat2("##Collision Bounds", collisionBounds);
 
 			ImGui::TreePop();
 		}

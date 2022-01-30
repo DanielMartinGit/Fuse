@@ -46,11 +46,12 @@ void Fuse::Window::InitialiseImGui()
 	ImGui::CreateContext();
 	ImGui_ImplGlfw_InitForOpenGL(m_Window, true);
 	ImGui_ImplOpenGL3_Init(m_GLSLVersion);
-	ImGui::StyleColorsDark();
 
 	// Enable docking for ImGui Window
 	ImGuiIO& io = ImGui::GetIO();
 	io.ConfigFlags = ImGuiConfigFlags_DockingEnable;
+
+	m_EditorTheme.SetStyle();
 }
 
 void Fuse::Window::InitialiseWindow()

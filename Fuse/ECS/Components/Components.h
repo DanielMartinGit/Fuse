@@ -8,7 +8,10 @@ namespace Fuse
 	class Entity
 	{
 		public:
-			Entity() {}
+			Entity()
+			{
+				m_Active = true;
+			}
 			~Entity() {}
 
 		public:
@@ -22,6 +25,7 @@ namespace Fuse
 			uint32_t GetEntityID() { return m_EntityID; }
 	
 		public:
+			bool m_Active;
 			std::string m_EntityName = "Test Name";
 			std::string m_EntityTag = "Entity";
 			uint32_t m_EntityID = 0;
@@ -57,7 +61,6 @@ namespace Fuse
 			SpriteRenderer2D()
 			{
 				m_Texture = 0;
-
 				SetTexture("Resources/Textures/Texture.png");
 			}
 			~SpriteRenderer2D() {}

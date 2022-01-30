@@ -1,14 +1,14 @@
-#include "Editor/Window/Window.h"
-#include "Editor/EditorWindow/Editor.h"
+#include "../Editor/Editor/Window/Window.h"
+#include "../Editor/Editor/EditorWindow/Editor.h"
 
 int main()
 {
 	srand((unsigned int)time(NULL));
 
-	Fuse::Editor editor;
-	Fuse::Window window(editor);
-
-	window.Initialise();
+	Fuse::Editor* editor = new Fuse::Editor();
+	Fuse::Window* window = new Fuse::Window(*editor);
+	
+	window->Initialise();
 
 	return 0;
 }

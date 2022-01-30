@@ -1,4 +1,5 @@
 #include "Profiler.h"
+#include "../SceneHierarchy/SceneHierarchy.h"
 
 Fuse::Profiler::Profiler()
 {
@@ -35,10 +36,11 @@ void Fuse::Profiler::OnImGuiRender()
 	}
 	if (ImGui::CollapsingHeader("RENDERING STATS"), ImGuiTreeNodeFlags_DefaultOpen)
 	{
+		ImGui::Text("Selected EntityID: %i", Fuse::SceneHierarchy::GetSelectedEntity());
 		ImGui::Text("Entities: %i", Fuse::EntitySystem::GetEntities());
 		ImGui::Text("Draw Calls: %d", Fuse::Renderer2D::GetDrawcalls());
-		ImGui::Text("Vertices: %i", 0);
-		ImGui::Text("Indices: %i", 0);
+		ImGui::Text("Vertices: %i", Fuse::Renderer2D::GetTotalVertices());
+		ImGui::Text("Indices: %i", Fuse::Renderer2D::GetTotalIndices());
 	}
 	
 	ImGui::End();
