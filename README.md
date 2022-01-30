@@ -23,5 +23,4 @@ Resources: The Resources Panel is used for showing the user how many Textures/Sp
 Profiler: The Profiler Panel is used mostly for Debugging purposes, with information such as the OpenGL version, GPU information such as the specific card and manufacturer, FPS and Frametime and how many Entities, Draw calls, indices and vertices are in the currently renderer scene.  
 Asset Browser: The Asset Browser Panel is used for viewing and navigating the current loaded projects directory, this can be used to grab sprites for use in game, adding sounds and textures to a project or creating new folders inside a project for organisation.  
 
-![image](https://user-images.githubusercontent.com/19360613/151717164-de2c2ee4-5d6e-4b02-81b8-3a523d2dcd3c.png)
-
+![image](https://user-images.githubusercontent.com/19360613/151717199-64919fd1-26db-4272-8fbc-2b101a86108b.png)
