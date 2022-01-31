@@ -35,13 +35,13 @@ void Fuse::SceneHierarchy::OnImGuiRender()
 		{
 			auto& entityComponent = m_EntitySystem->GetComponent<Fuse::Entity>(entity);
 			
-			if (ImGui::Selectable(entityComponent.GetEntityName().c_str(), m_SelectableBools[entityComponent.GetEntityID()]))
+			if (ImGui::Selectable(entityComponent.GetEntityName().c_str(), m_SelectableBools[entityComponent.GetEntityID()]) && m_SelectedEntity == nullptr)
 			{
 				m_SelectableBools[entityComponent.GetEntityID()] = true;
 				m_SelectedEntity = &entity;
 			}
 
-			if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0))
+			if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0) || m_ShowEntityOptions)
 			{
 				m_SelectableBools[entityComponent.GetEntityID()] = false;
 				m_SelectedEntity = nullptr;
