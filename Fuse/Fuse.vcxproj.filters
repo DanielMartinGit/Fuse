@@ -1,75 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="DeltaTime">
-      <UniqueIdentifier>{DEBB56A8-4A26-0B1F-9364-BCC4FF0DE973}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ECS">
-      <UniqueIdentifier>{60E1870B-CCEA-877C-5566-9E7CC16E937C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ECS\Components">
-      <UniqueIdentifier>{752AA906-61F8-9C0C-4A8C-0D3336F97871}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ECS\EntitySystem">
-      <UniqueIdentifier>{51FEDDE1-3DF7-FC33-6629-E2B85281DC3F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ECS\Systems">
-      <UniqueIdentifier>{67975D28-D34C-D61D-5C41-D0F4C8F5CC21}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="EditorCamera">
-      <UniqueIdentifier>{9540876E-81A3-1613-2A29-4FC9166BE295}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="EditorCamera\EditorCameraController">
-      <UniqueIdentifier>{182BFCF4-84E4-669F-0D44-817979FC1C0F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{1653CE33-0220-293F-2B39-17E717655ECD}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Framebuffer">
-      <UniqueIdentifier>{4AD5CA42-3664-540C-DF82-6807CBF064B2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Rendering">
-      <UniqueIdentifier>{E36FFD99-CF53-BEEF-38B4-B84224B7A871}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Rendering\Renderer2D">
-      <UniqueIdentifier>{DFA79075-4BC0-779F-146D-073980440C39}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\ShaderProgram">
-      <UniqueIdentifier>{547B5CDB-4075-852D-29E2-1B3E157BEB99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Layers">
-      <UniqueIdentifier>{157446C0-0116-7196-EAD0-84EAD611F8E6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Layers\BaseLayer">
-      <UniqueIdentifier>{5C9C1213-4895-3165-71C7-16EA5D1F1171}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Layers\InputLayer">
-      <UniqueIdentifier>{91ABA5E2-FDC1-A378-4639-2F9AB28E7400}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Panels">
-      <UniqueIdentifier>{A80D95C9-94AF-BF9F-7D6A-D3F369AB46F0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Panels\BasePanel">
-      <UniqueIdentifier>{E2BCB892-CEB5-D7E4-F7E7-BC69E33FB7F0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Panels\PanelManager">
-      <UniqueIdentifier>{A28057EE-0EE2-34FC-974F-7BAE03B06BBB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ResourceManager">
-      <UniqueIdentifier>{2827463B-94B2-B3FF-9DC3-36F409CE0F00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{B3F7140E-1F0C-3DBF-E88D-E01E546139F0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneManager">
-      <UniqueIdentifier>{2E1787B7-1A7A-165C-C3FF-4E12AF41E2DE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Timer">
-      <UniqueIdentifier>{667B2A0E-D28F-52BF-9B11-F61E07E54EF0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Vendor">
       <UniqueIdentifier>{935FDCD7-7F01-07AE-68BC-1A0254FD8DFE}</UniqueIdentifier>
     </Filter>
@@ -124,62 +55,83 @@
     <Filter Include="Vendor\STB">
       <UniqueIdentifier>{0B237327-F7DA-B474-60E2-8DD04CB94F65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DeltaTime">
+      <UniqueIdentifier>{B51D11E8-21DE-8C1E-EA18-D69B5698D1FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ECS">
+      <UniqueIdentifier>{F76D2FA9-634D-AE44-6C65-391BD8C314A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ECS\Components">
+      <UniqueIdentifier>{AC4A8D64-982E-4EBA-018F-480DED91383C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ECS\EntitySystem">
+      <UniqueIdentifier>{48084B49-3497-D412-DDB5-E80DC923E5B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ECS\Systems">
+      <UniqueIdentifier>{FECA3740-6A56-A504-7367-28F9DF710105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\EditorCamera">
+      <UniqueIdentifier>{0CE7A781-F8DF-C6D3-2112-AC580D6AA6DF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\EditorCamera\EditorCameraController">
+      <UniqueIdentifier>{AF53B815-1BE3-7900-24DF-5A1890EDB40C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphics">
+      <UniqueIdentifier>{0D564864-F9B8-D708-A23E-10BF8E80A38B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphics\Framebuffer">
+      <UniqueIdentifier>{C1020A4D-AD27-59CD-D672-3E5DC2F657EB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphics\Rendering">
+      <UniqueIdentifier>{9AD3D490-86CD-FDE2-6F3A-94F35BD3634F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphics\Rendering\Renderer2D">
+      <UniqueIdentifier>{36EB1B33-A259-71B2-EB42-2CB257F0664E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Graphics\ShaderProgram">
+      <UniqueIdentifier>{8BE21C72-77F2-C842-E0AB-2D61CCDAB7DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input">
+      <UniqueIdentifier>{EC4823B3-58B3-D729-A1F1-88CF0D9BB57E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Layers">
+      <UniqueIdentifier>{4C4DA51D-3805-E76A-A10C-C0C68DE3815B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Layers\BaseLayer">
+      <UniqueIdentifier>{53A67F7A-3F35-0944-E853-1D3FD4C119EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Layers\InputLayer">
+      <UniqueIdentifier>{68F4B337-D460-6F32-9D54-07900980919A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Panels">
+      <UniqueIdentifier>{DFE6F326-CB9E-3574-34A6-0ED0207DD064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Panels\BasePanel">
+      <UniqueIdentifier>{D9C625FA-C555-AFC3-6E74-C3BE5AE2BF69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Panels\PanelManager">
+      <UniqueIdentifier>{395B1BC0-A592-6357-AE9C-C77A1A538A50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ResourceManager">
+      <UniqueIdentifier>{3F4EAE55-ABAF-8B63-341D-D215A07DC222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{0A06D2B3-7670-862A-BFAE-37D02B58647F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SceneManager">
+      <UniqueIdentifier>{A5BDA7CA-91B6-C61C-BAE8-ABA1A640A628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Theme">
+      <UniqueIdentifier>{4FDCE6B3-BB46-9B2A-0485-4CD0702E797F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Timer">
+      <UniqueIdentifier>{BD89E7B3-29F4-9B2A-7232-4DD0DEDB797F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DeltaTime\DeltaTime.h">
-      <Filter>DeltaTime</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\Components\Components.h">
-      <Filter>ECS\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\EntitySystem\EntitySystem.h">
-      <Filter>ECS\EntitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\Systems\RenderingSystem.h">
-      <Filter>ECS\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="EditorCamera\EditorCamera.h">
-      <Filter>EditorCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="EditorCamera\EditorCameraController\EditorCameraController.h">
-      <Filter>EditorCamera\EditorCameraController</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Framebuffer\Framebuffer.h">
-      <Filter>Graphics\Framebuffer</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Rendering\Renderer2D\Renderer2D.h">
-      <Filter>Graphics\Rendering\Renderer2D</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\ShaderProgram\ShaderProgram.h">
-      <Filter>Graphics\ShaderProgram</Filter>
-    </ClInclude>
-    <ClInclude Include="Input\Input.h">
-      <Filter>Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Layers\BaseLayer\BaseLayer.h">
-      <Filter>Layers\BaseLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="Layers\InputLayer\InputLayer.h">
-      <Filter>Layers\InputLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="Panels\BasePanel\Panel.h">
-      <Filter>Panels\BasePanel</Filter>
-    </ClInclude>
-    <ClInclude Include="Panels\PanelManager\PanelManager.h">
-      <Filter>Panels\PanelManager</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager\ResourceManager.h">
-      <Filter>ResourceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager\SceneManager.h">
-      <Filter>SceneManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer\Timer.h">
-      <Filter>Timer</Filter>
-    </ClInclude>
     <ClInclude Include="Vendor\Entt\entt.hpp">
       <Filter>Vendor\Entt</Filter>
     </ClInclude>
@@ -1575,33 +1527,65 @@
     <ClInclude Include="Vendor\STB\stb_voxel_render.h">
       <Filter>Vendor\STB</Filter>
     </ClInclude>
-    <ClInclude Include="Theme\ImGuiTheme.h" />
+    <ClInclude Include="src\DeltaTime\DeltaTime.h">
+      <Filter>src\DeltaTime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Components\Components.h">
+      <Filter>src\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\EntitySystem\EntitySystem.h">
+      <Filter>src\ECS\EntitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Systems\RenderingSystem.h">
+      <Filter>src\ECS\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorCamera\EditorCamera.h">
+      <Filter>src\EditorCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorCamera\EditorCameraController\EditorCameraController.h">
+      <Filter>src\EditorCamera\EditorCameraController</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Framebuffer\Framebuffer.h">
+      <Filter>src\Graphics\Framebuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Rendering\Renderer2D\Renderer2D.h">
+      <Filter>src\Graphics\Rendering\Renderer2D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\ShaderProgram\ShaderProgram.h">
+      <Filter>src\Graphics\ShaderProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Input.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\BaseLayer\BaseLayer.h">
+      <Filter>src\Layers\BaseLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\InputLayer\InputLayer.h">
+      <Filter>src\Layers\InputLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Panels\BasePanel\Panel.h">
+      <Filter>src\Panels\BasePanel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Panels\PanelManager\PanelManager.h">
+      <Filter>src\Panels\PanelManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResourceManager\ResourceManager.h">
+      <Filter>src\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Scene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager\SceneManager.h">
+      <Filter>src\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Theme\ImGuiTheme.h">
+      <Filter>src\Theme</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Timer\Timer.h">
+      <Filter>src\Timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditorCamera\EditorCameraController\EditorCameraController.cpp">
-      <Filter>EditorCamera\EditorCameraController</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Framebuffer\Framebuffer.cpp">
-      <Filter>Graphics\Framebuffer</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Rendering\Renderer2D\Renderer2D.cpp">
-      <Filter>Graphics\Rendering\Renderer2D</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\ShaderProgram\ShaderProgram.cpp">
-      <Filter>Graphics\ShaderProgram</Filter>
-    </ClCompile>
-    <ClCompile Include="Input\Input.cpp">
-      <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Panels\PanelManager\PanelManager.cpp">
-      <Filter>Panels\PanelManager</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceManager\ResourceManager.cpp">
-      <Filter>ResourceManager</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager\SceneManager.cpp">
-      <Filter>SceneManager</Filter>
-    </ClCompile>
     <ClCompile Include="Vendor\GLAD\glad.c">
       <Filter>Vendor\GLAD</Filter>
     </ClCompile>
@@ -1646,6 +1630,30 @@
     </ClCompile>
     <ClCompile Include="Vendor\STB\stb_vorbis.c">
       <Filter>Vendor\STB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorCamera\EditorCameraController\EditorCameraController.cpp">
+      <Filter>src\EditorCamera\EditorCameraController</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Framebuffer\Framebuffer.cpp">
+      <Filter>src\Graphics\Framebuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Rendering\Renderer2D\Renderer2D.cpp">
+      <Filter>src\Graphics\Rendering\Renderer2D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\ShaderProgram\ShaderProgram.cpp">
+      <Filter>src\Graphics\ShaderProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Input.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Panels\PanelManager\PanelManager.cpp">
+      <Filter>src\Panels\PanelManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager\ResourceManager.cpp">
+      <Filter>src\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager\SceneManager.cpp">
+      <Filter>src\SceneManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
-#include "../Editor/Editor/Window/Window.h"
-#include "../Editor/Editor/EditorWindow/Editor.h"
+#include "src/EditorWindow/Editor.h"
+#include "src/Window/Window.h"
 
 int main()
 {

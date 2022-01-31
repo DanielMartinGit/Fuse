@@ -60,7 +60,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -89,25 +89,6 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DeltaTime\DeltaTime.h" />
-    <ClInclude Include="ECS\Components\Components.h" />
-    <ClInclude Include="ECS\EntitySystem\EntitySystem.h" />
-    <ClInclude Include="ECS\Systems\RenderingSystem.h" />
-    <ClInclude Include="EditorCamera\EditorCamera.h" />
-    <ClInclude Include="EditorCamera\EditorCameraController\EditorCameraController.h" />
-    <ClInclude Include="Graphics\Framebuffer\Framebuffer.h" />
-    <ClInclude Include="Graphics\Rendering\Renderer2D\Renderer2D.h" />
-    <ClInclude Include="Graphics\ShaderProgram\ShaderProgram.h" />
-    <ClInclude Include="Input\Input.h" />
-    <ClInclude Include="Layers\BaseLayer\BaseLayer.h" />
-    <ClInclude Include="Layers\InputLayer\InputLayer.h" />
-    <ClInclude Include="Panels\BasePanel\Panel.h" />
-    <ClInclude Include="Panels\PanelManager\PanelManager.h" />
-    <ClInclude Include="ResourceManager\ResourceManager.h" />
-    <ClInclude Include="Scene\Scene.h" />
-    <ClInclude Include="SceneManager\SceneManager.h" />
-    <ClInclude Include="Theme\ImGuiTheme.h" />
-    <ClInclude Include="Timer\Timer.h" />
     <ClInclude Include="Vendor\Entt\entt.hpp" />
     <ClInclude Include="Vendor\GLAD\KHR\khrplatform.h" />
     <ClInclude Include="Vendor\GLAD\glad.h" />
@@ -573,16 +554,27 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="Vendor\STB\stb_tilemap_editor.h" />
     <ClInclude Include="Vendor\STB\stb_truetype.h" />
     <ClInclude Include="Vendor\STB\stb_voxel_render.h" />
+    <ClInclude Include="src\DeltaTime\DeltaTime.h" />
+    <ClInclude Include="src\ECS\Components\Components.h" />
+    <ClInclude Include="src\ECS\EntitySystem\EntitySystem.h" />
+    <ClInclude Include="src\ECS\Systems\RenderingSystem.h" />
+    <ClInclude Include="src\EditorCamera\EditorCamera.h" />
+    <ClInclude Include="src\EditorCamera\EditorCameraController\EditorCameraController.h" />
+    <ClInclude Include="src\Graphics\Framebuffer\Framebuffer.h" />
+    <ClInclude Include="src\Graphics\Rendering\Renderer2D\Renderer2D.h" />
+    <ClInclude Include="src\Graphics\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\Layers\BaseLayer\BaseLayer.h" />
+    <ClInclude Include="src\Layers\InputLayer\InputLayer.h" />
+    <ClInclude Include="src\Panels\BasePanel\Panel.h" />
+    <ClInclude Include="src\Panels\PanelManager\PanelManager.h" />
+    <ClInclude Include="src\ResourceManager\ResourceManager.h" />
+    <ClInclude Include="src\Scene\Scene.h" />
+    <ClInclude Include="src\SceneManager\SceneManager.h" />
+    <ClInclude Include="src\Theme\ImGuiTheme.h" />
+    <ClInclude Include="src\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditorCamera\EditorCameraController\EditorCameraController.cpp" />
-    <ClCompile Include="Graphics\Framebuffer\Framebuffer.cpp" />
-    <ClCompile Include="Graphics\Rendering\Renderer2D\Renderer2D.cpp" />
-    <ClCompile Include="Graphics\ShaderProgram\ShaderProgram.cpp" />
-    <ClCompile Include="Input\Input.cpp" />
-    <ClCompile Include="Panels\PanelManager\PanelManager.cpp" />
-    <ClCompile Include="ResourceManager\ResourceManager.cpp" />
-    <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="Vendor\GLAD\glad.c" />
     <ClCompile Include="Vendor\GLM\detail\glm.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui.cpp" />
@@ -598,6 +590,14 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClCompile Include="Vendor\ImGuizmo\ImGuizmo.cpp" />
     <ClCompile Include="Vendor\ImGuizmo\ImSequencer.cpp" />
     <ClCompile Include="Vendor\STB\stb_vorbis.c" />
+    <ClCompile Include="src\EditorCamera\EditorCameraController\EditorCameraController.cpp" />
+    <ClCompile Include="src\Graphics\Framebuffer\Framebuffer.cpp" />
+    <ClCompile Include="src\Graphics\Rendering\Renderer2D\Renderer2D.cpp" />
+    <ClCompile Include="src\Graphics\ShaderProgram\ShaderProgram.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Panels\PanelManager\PanelManager.cpp" />
+    <ClCompile Include="src\ResourceManager\ResourceManager.cpp" />
+    <ClCompile Include="src\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\Libraries\Fuse\Fuse.lib" />

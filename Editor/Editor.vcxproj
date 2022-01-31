@@ -65,7 +65,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Fuse.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Fuse\Vendor\Libraries\GLFW;..\Fuse\Vendor\Libraries\Fuse;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -85,31 +85,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Editor\EditorWindow\Editor.h" />
-    <ClInclude Include="Editor\Panels\AssetBrowser\AssetBrowser.h" />
-    <ClInclude Include="Editor\Panels\Console\Console.h" />
-    <ClInclude Include="Editor\Panels\GameViewport\GameViewport.h" />
-    <ClInclude Include="Editor\Panels\Inspector\Inspector.h" />
-    <ClInclude Include="Editor\Panels\MenuBar\Menubar.h" />
-    <ClInclude Include="Editor\Panels\Profiler\Profiler.h" />
-    <ClInclude Include="Editor\Panels\Resources\Resources.h" />
-    <ClInclude Include="Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
-    <ClInclude Include="Editor\Panels\SceneViewport\SceneViewport.h" />
-    <ClInclude Include="Editor\Window\Window.h" />
+    <ClInclude Include="src\EditorWindow\Editor.h" />
+    <ClInclude Include="src\Panels\AssetBrowser\AssetBrowser.h" />
+    <ClInclude Include="src\Panels\Console\Console.h" />
+    <ClInclude Include="src\Panels\GameViewport\GameViewport.h" />
+    <ClInclude Include="src\Panels\Inspector\Inspector.h" />
+    <ClInclude Include="src\Panels\MenuBar\Menubar.h" />
+    <ClInclude Include="src\Panels\Profiler\Profiler.h" />
+    <ClInclude Include="src\Panels\Resources\Resources.h" />
+    <ClInclude Include="src\Panels\SceneHierarchy\SceneHierarchy.h" />
+    <ClInclude Include="src\Panels\SceneViewport\SceneViewport.h" />
+    <ClInclude Include="src\Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Editor\EditorWindow\Editor.cpp" />
-    <ClCompile Include="Editor\Panels\AssetBrowser\AssetBrowser.cpp" />
-    <ClCompile Include="Editor\Panels\Console\Console.cpp" />
-    <ClCompile Include="Editor\Panels\GameViewport\GameViewport.cpp" />
-    <ClCompile Include="Editor\Panels\Inspector\Inspector.cpp" />
-    <ClCompile Include="Editor\Panels\MenuBar\Menubar.cpp" />
-    <ClCompile Include="Editor\Panels\Profiler\Profiler.cpp" />
-    <ClCompile Include="Editor\Panels\Resources\Resources.cpp" />
-    <ClCompile Include="Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
-    <ClCompile Include="Editor\Panels\SceneViewport\SceneViewport.cpp" />
-    <ClCompile Include="Editor\Window\Window.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\EditorWindow\Editor.cpp" />
+    <ClCompile Include="src\Panels\AssetBrowser\AssetBrowser.cpp" />
+    <ClCompile Include="src\Panels\Console\Console.cpp" />
+    <ClCompile Include="src\Panels\GameViewport\GameViewport.cpp" />
+    <ClCompile Include="src\Panels\Inspector\Inspector.cpp" />
+    <ClCompile Include="src\Panels\MenuBar\Menubar.cpp" />
+    <ClCompile Include="src\Panels\Profiler\Profiler.cpp" />
+    <ClCompile Include="src\Panels\Resources\Resources.cpp" />
+    <ClCompile Include="src\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
+    <ClCompile Include="src\Panels\SceneViewport\SceneViewport.cpp" />
+    <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fuse\Fuse.vcxproj">
