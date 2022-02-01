@@ -2,7 +2,7 @@
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
 #include "../../../../Fuse/src/ResourceManager/ResourceManager.h"
 
-namespace Fuse
+namespace Editor
 {
 	class Resources : public Fuse::Panel
 	{

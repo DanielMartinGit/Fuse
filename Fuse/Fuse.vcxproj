@@ -56,7 +56,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor\STB;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor\STB;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
@@ -74,7 +74,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\De
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor\STB;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor\STB;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
@@ -89,6 +89,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ProjectManager\ProjectManager.h" />
     <ClInclude Include="Vendor\Entt\entt.hpp" />
     <ClInclude Include="Vendor\GLAD\KHR\khrplatform.h" />
     <ClInclude Include="Vendor\GLAD\glad.h" />
@@ -575,6 +576,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="src\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ProjectManager\ProjectManager.cpp" />
     <ClCompile Include="Vendor\GLAD\glad.c" />
     <ClCompile Include="Vendor\GLM\detail\glm.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui.cpp" />

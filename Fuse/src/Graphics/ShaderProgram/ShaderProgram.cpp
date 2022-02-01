@@ -44,7 +44,7 @@ void Fuse::ShaderProgram::LoadShader(const char* shaderName, GLuint shaderType, 
 		{
 			std::string name(shaderName);
 			std::string message = "Shader type: " + name + " Shader unsupported by Shader Program";
-			Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, message.c_str());
+			Editor::Console::PrintToConsole(Editor::MessageType::ERROR, message.c_str());
 		}
 	}
 	catch (std::ofstream::failure e)
@@ -134,7 +134,7 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shad
 		std::string message = shaderName;
 		message.append(infoLog);
 
-		Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, message.c_str());
+		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, message.c_str());
 		return false;
 	}
 	else
@@ -142,7 +142,7 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shad
 		std::string message = "Shader Compilation Successful: ";
 		message.append(shaderName);
 
-		Fuse::Console::PrintToConsole(Fuse::MessageType::MESSAGE, message.c_str());
+		Editor::Console::PrintToConsole(Editor::MessageType::MESSAGE, message.c_str());
 		return true;
 	}
 }
@@ -156,12 +156,12 @@ bool Fuse::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	if (!success)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, "Shader Link Failed");
+		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Shader Link Failed");
 		return false;
 	}
 	else
 	{
-		Fuse::Console::PrintToConsole(Fuse::MessageType::MESSAGE, "Shader Link Successful");
+		Editor::Console::PrintToConsole(Editor::MessageType::MESSAGE, "Shader Link Successful");
 		return true;
 	}
 }

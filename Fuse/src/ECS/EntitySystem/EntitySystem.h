@@ -19,7 +19,7 @@ namespace Fuse
 			{
 				auto entity = m_World->create();
 
-				Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Entity Added to Scene");
+				Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Entity Added to Scene");
 				
 				OnComponentAdded<Fuse::Entity>(entity);
 				OnComponentAdded<Fuse::Transform>(entity);
@@ -35,7 +35,7 @@ namespace Fuse
 			{
 				auto entity = m_World->create();
 
-				Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Entity Added to Scene");
+				Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Entity Added to Scene");
 
 				OnComponentAdded<Fuse::Entity>(entity);
 				OnComponentAdded<Fuse::Transform>(entity);
@@ -52,7 +52,7 @@ namespace Fuse
 			{
 				auto entity = m_World->create();
 
-				Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Empty Entity Added to Scene");
+				Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Empty Entity Added to Scene");
 
 				OnComponentAdded<Fuse::Entity>(entity);
 
@@ -71,11 +71,11 @@ namespace Fuse
 				if (!hasComponent)
 				{
 					m_World->emplace<T>(entity);
-					Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Component Added");
+					Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Component Added");
 				}
 				else
 				{
-					Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, "Entity already contains this component");
+					Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Entity already contains this component");
 				}
 			}
 
@@ -87,11 +87,11 @@ namespace Fuse
 				if (hasComponent)
 				{
 					m_World->erase<T>(entity);
-					Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Component Removed");
+					Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Component Removed");
 				}
 				else
 				{
-					Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, "Entity didn't contain component");
+					Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Entity didn't contain component");
 				}
 			}
 
@@ -103,7 +103,7 @@ namespace Fuse
 				if (hasComponent)
 				{
 					return m_World->get<T>(entity);
-					Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Got Component from Entity");
+					Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Got Component from Entity");
 				}
 			}
 

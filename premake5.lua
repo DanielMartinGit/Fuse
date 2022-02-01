@@ -38,7 +38,10 @@ project "Fuse"
 		"%prj.name/Vendor/ImGui/",
 		"%prj.name/Vendor/ImGuizmo/",
 		"%prj.name/Vendor/JSON/",
-		"%prj.name/Vendor/STB/"
+		"%prj.name/Vendor/STB/",
+
+		"%prj.name/Vendor/",
+		"%prj.name/src/"
 	}
 
 	filter "system:windows"
@@ -78,7 +81,7 @@ project "Editor"
 		"%{prj.name}/**.h",
 		"%{prj.name}/**.cpp"
 	}
-
+	
 	libdirs
 	{
 		"Fuse/Vendor/Libraries/GLFW",

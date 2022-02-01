@@ -1,7 +1,7 @@
 #pragma once
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
 
-namespace Fuse
+namespace Editor
 {
 	class GameViewport : public Fuse::Panel
 	{

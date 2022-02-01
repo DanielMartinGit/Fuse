@@ -1,13 +1,13 @@
 #include "Inspector.h"
 
-Fuse::Inspector::Inspector()
+Editor::Inspector::Inspector()
 {
 	m_CurrentItem = "";
 	m_Components = m_ComponentTypes::None;
 }
-Fuse::Inspector::~Inspector() {}
+Editor::Inspector::~Inspector() {}
 
-void Fuse::Inspector::OnImGuiRender()
+void Editor::Inspector::OnImGuiRender()
 {
 	ImGui::Begin("Inspector", &GetActiveState());
 
@@ -21,9 +21,9 @@ void Fuse::Inspector::OnImGuiRender()
 	ImGui::End();
 }
 
-void Fuse::Inspector::ShowEntityComponents()
+void Editor::Inspector::ShowEntityComponents()
 {
-	if (Fuse::SceneHierarchy::GetSelectedEntity() != nullptr)
+	if (Editor::SceneHierarchy::GetSelectedEntity() != nullptr)
 	{
 		ShowComponents();
 
@@ -37,7 +37,7 @@ void Fuse::Inspector::ShowEntityComponents()
 	}
 }
 
-void Fuse::Inspector::ShowComponentsMenu()
+void Editor::Inspector::ShowComponentsMenu()
 {
 	if(ImGui::BeginCombo("##Components", ""))
 	{
@@ -54,36 +54,36 @@ void Fuse::Inspector::ShowComponentsMenu()
 	}
 }
 
-void Fuse::Inspector::AddComponentToEntity(m_ComponentTypes component)
+void Editor::Inspector::AddComponentToEntity(m_ComponentTypes component)
 {
 	switch (component)
 	{
 		case m_ComponentTypes::Transform:
 		{
-			Fuse::EntitySystem::OnComponentAdded<Fuse::Transform>(*Fuse::SceneHierarchy::GetSelectedEntity());
+			Fuse::EntitySystem::OnComponentAdded<Fuse::Transform>(*Editor::SceneHierarchy::GetSelectedEntity());
 			m_DisplayComponents = false;
 		}
 			break;
 		case m_ComponentTypes::SpriteRenderer2D:
 		{
-			Fuse::EntitySystem::OnComponentAdded<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+			Fuse::EntitySystem::OnComponentAdded<Fuse::SpriteRenderer2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 			m_DisplayComponents = false;
 		}
 			break;
 		case m_ComponentTypes::BoxCollider2D:
 		{
-			Fuse::EntitySystem::OnComponentAdded<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+			Fuse::EntitySystem::OnComponentAdded<Fuse::BoxCollider2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 			m_DisplayComponents = false;
 		}
 			break;
 	}
 }
 
-void Fuse::Inspector::ShowComponents()
+void Editor::Inspector::ShowComponents()
 {
 	if (ImGui::TreeNodeEx("Entity"))
 	{
-		auto entityComponent = Fuse::EntitySystem::GetComponent<Fuse::Entity>(*Fuse::SceneHierarchy::GetSelectedEntity());
+		auto entityComponent = Fuse::EntitySystem::GetComponent<Fuse::Entity>(*Editor::SceneHierarchy::GetSelectedEntity());
 
 		std::string entityNameText = "Name: ";
 		std::string entityTag = "Tag: ";
@@ -100,9 +100,9 @@ void Fuse::Inspector::ShowComponents()
 		ImGui::TreePop();
 	}
 
-	if (Fuse::EntitySystem::HasComponent<Fuse::Transform>(*Fuse::SceneHierarchy::GetSelectedEntity()))
+	if (Fuse::EntitySystem::HasComponent<Fuse::Transform>(*Editor::SceneHierarchy::GetSelectedEntity()))
 	{
-		auto& transformComponent = Fuse::EntitySystem::GetComponent<Fuse::Transform>(*Fuse::SceneHierarchy::GetSelectedEntity());
+		auto& transformComponent = Fuse::EntitySystem::GetComponent<Fuse::Transform>(*Editor::SceneHierarchy::GetSelectedEntity());
 		
 		float translation[2] { transformComponent.GetTranslation().x, transformComponent.GetTranslation().y };
 		float scale[2] { transformComponent.GetScale().x, transformComponent.GetScale().y };
@@ -126,15 +126,15 @@ void Fuse::Inspector::ShowComponents()
 		}
 	}
 
-	if (Fuse::EntitySystem::HasComponent<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity()))
+	if (Fuse::EntitySystem::HasComponent<Fuse::SpriteRenderer2D>(*Editor::SceneHierarchy::GetSelectedEntity()))
 	{
-		auto& spriteComponent = Fuse::EntitySystem::GetComponent<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+		auto& spriteComponent = Fuse::EntitySystem::GetComponent<Fuse::SpriteRenderer2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 
 		if (ImGui::TreeNode("SpriteRenderer2D"))
 		{
 			if (ImGui::Button("X", ImVec2(25, 25)))
 			{
-				Fuse::EntitySystem::OnComponentRemoved<Fuse::SpriteRenderer2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+				Fuse::EntitySystem::OnComponentRemoved<Fuse::SpriteRenderer2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 			}
 			ImGui::SameLine();
 			ImGui::Checkbox("Active", &spriteComponent.GetActiveState());
@@ -144,15 +144,15 @@ void Fuse::Inspector::ShowComponents()
 		}
 	}
 
-	if (Fuse::EntitySystem::HasComponent<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity()))
+	if (Fuse::EntitySystem::HasComponent<Fuse::BoxCollider2D>(*Editor::SceneHierarchy::GetSelectedEntity()))
 	{
-		auto& boxColliderComponent = Fuse::EntitySystem::GetComponent<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+		auto& boxColliderComponent = Fuse::EntitySystem::GetComponent<Fuse::BoxCollider2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 
 		if (ImGui::TreeNode("BoxCollider2D"))
 		{
 			if (ImGui::Button("X", ImVec2(25, 25)))
 			{
-				Fuse::EntitySystem::OnComponentRemoved<Fuse::BoxCollider2D>(*Fuse::SceneHierarchy::GetSelectedEntity());
+				Fuse::EntitySystem::OnComponentRemoved<Fuse::BoxCollider2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 			}
 
 			ImGui::Checkbox("Active", &boxColliderComponent.GetActiveState());

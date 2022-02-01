@@ -1,7 +1,7 @@
 #include "Profiler.h"
 #include "../SceneHierarchy/SceneHierarchy.h"
 
-Fuse::Profiler::Profiler()
+Editor::Profiler::Profiler()
 {
 	m_Vendor = nullptr;
 	m_Renderer = nullptr;
@@ -11,9 +11,9 @@ Fuse::Profiler::Profiler()
 	m_Frametime = 0;
 	m_Drawcalls = 0;
 }
-Fuse::Profiler::~Profiler() {}
+Editor::Profiler::~Profiler() {}
 
-void Fuse::Profiler::OnImGuiRender()
+void Editor::Profiler::OnImGuiRender()
 {
 	ImGui::Begin("Profiler", &GetActiveState(), ImGuiWindowFlags_NoCollapse);
 
@@ -36,7 +36,7 @@ void Fuse::Profiler::OnImGuiRender()
 	}
 	if (ImGui::CollapsingHeader("RENDERING STATS"), ImGuiTreeNodeFlags_DefaultOpen)
 	{
-		ImGui::Text("Selected EntityID: %i", Fuse::SceneHierarchy::GetSelectedEntity());
+		ImGui::Text("Selected EntityID: %i", Editor::SceneHierarchy::GetSelectedEntity());
 		ImGui::Text("Entities: %i", Fuse::EntitySystem::GetEntities());
 		ImGui::Text("Draw Calls: %d", Fuse::Renderer2D::GetDrawcalls());
 		ImGui::Text("Vertices: %i", Fuse::Renderer2D::GetTotalVertices());
@@ -46,7 +46,7 @@ void Fuse::Profiler::OnImGuiRender()
 	ImGui::End();
 }
 
-void Fuse::Profiler::PrintStatsToConsole()
+void Editor::Profiler::PrintStatsToConsole()
 {
 	m_Vendor = new GLubyte();
 	m_Renderer = new GLubyte();

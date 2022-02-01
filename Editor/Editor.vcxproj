@@ -58,6 +58,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
@@ -67,12 +69,15 @@
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Fuse\Vendor\Libraries\GLFW;..\Fuse\Vendor\Libraries\Fuse;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\Fuse\src;..\Fuse\Vendor;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
@@ -86,6 +91,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\EditorWindow\Editor.h" />
+    <ClInclude Include="src\Menus\NewProject\NewProject.h" />
     <ClInclude Include="src\Panels\AssetBrowser\AssetBrowser.h" />
     <ClInclude Include="src\Panels\Console\Console.h" />
     <ClInclude Include="src\Panels\GameViewport\GameViewport.h" />
@@ -98,7 +104,7 @@
     <ClInclude Include="src\Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\EditorWindow\Editor.cpp" />
     <ClCompile Include="src\Panels\AssetBrowser\AssetBrowser.cpp" />
     <ClCompile Include="src\Panels\Console\Console.cpp" />
@@ -107,7 +113,7 @@
     <ClCompile Include="src\Panels\MenuBar\Menubar.cpp" />
     <ClCompile Include="src\Panels\Profiler\Profiler.cpp" />
     <ClCompile Include="src\Panels\Resources\Resources.cpp" />
-    <ClCompile Include="src\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
+    <ClCompile Include="src\Panels\SceneHierarchy\SceneHierarchy.cpp" />
     <ClCompile Include="src\Panels\SceneViewport\SceneViewport.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>

@@ -75,9 +75,10 @@
     <ClInclude Include="src\Window\Window.h">
       <Filter>src\Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\Menus\NewProject\NewProject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\EditorWindow\Editor.cpp">
       <Filter>src\EditorWindow</Filter>
     </ClCompile>
@@ -102,7 +103,7 @@
     <ClCompile Include="src\Panels\Resources\Resources.cpp">
       <Filter>src\Panels\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="src\Panels\SceneHierarchy\SceneHeriarchy.cpp">
+    <ClCompile Include="src\Panels\SceneHierarchy\SceneHierarchy.cpp">
       <Filter>src\Panels\SceneHierarchy</Filter>
     </ClCompile>
     <ClCompile Include="src\Panels\SceneViewport\SceneViewport.cpp">

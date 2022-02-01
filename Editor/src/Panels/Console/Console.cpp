@@ -1,6 +1,6 @@
 #include "Console.h"
 
-Fuse::Console::Console()
+Editor::Console::Console()
 {
 	m_ShowErrors = true;
 	m_ShowWarnings = true;
@@ -10,9 +10,9 @@ Fuse::Console::Console()
 	m_AutoScroll = true;
 	ClearConsole();
 }
-Fuse::Console::~Console() {}
+Editor::Console::~Console() {}
 
-void Fuse::Console::PrintToConsole(MessageType messageType, const char* message, ...)
+void Editor::Console::PrintToConsole(MessageType messageType, const char* message, ...)
 {
 	std::string newMessage;
 
@@ -61,7 +61,7 @@ void Fuse::Console::PrintToConsole(MessageType messageType, const char* message,
 	}
 }
 
-void Fuse::Console::OnImGuiRender()
+void Editor::Console::OnImGuiRender()
 {
 	ImGui::Begin("Console", &GetActiveState());
 
@@ -107,7 +107,7 @@ void Fuse::Console::OnImGuiRender()
 	ImGui::End();
 }
 
-void Fuse::Console::ClearConsole()
+void Editor::Console::ClearConsole()
 {
 	m_Buffer.clear();
 	m_LineOffsets.clear();

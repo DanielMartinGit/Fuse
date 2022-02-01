@@ -1,9 +1,9 @@
 #pragma once
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
-#include ".../../../../../../Fuse/Vendor/Entt/entt.hpp"
-#include "../SceneHierarchy/SceneHierarchy.h"
+#include "../../../../Editor/src/Panels/SceneHierarchy/SceneHierarchy.h"
+#include "../../../../Fuse/Vendor/Entt/entt.hpp"
 
-namespace Fuse
+namespace Editor
 {
 	enum class m_ComponentTypes { None, Transform, SpriteRenderer2D, BoxCollider2D };
 

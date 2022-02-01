@@ -1,9 +1,9 @@
 #include "Menubar.h"
 
-Fuse::Menubar::Menubar() {}
-Fuse::Menubar::~Menubar() {}
+Editor::Menubar::Menubar() {}
+Editor::Menubar::~Menubar() {}
 
-void Fuse::Menubar::OnImGuiRender()
+void Editor::Menubar::OnImGuiRender()
 {
 	if (ImGui::BeginMenuBar())
 	{
@@ -11,6 +11,17 @@ void Fuse::Menubar::OnImGuiRender()
 		{
 			ImGui::MenuItem("Open");
 			ImGui::MenuItem("Save");
+
+			ImGui::Separator();
+
+			if (ImGui::MenuItem("Create New Project"))
+			{
+				Menus::NewProject::m_IsActive = !Menus::NewProject::m_IsActive;
+			}
+			if (ImGui::MenuItem("Load Project")) { Fuse::ProjectManager::LoadProject("C:/users/Danie/Desktop/Test"); }
+
+			ImGui::Separator();
+
 			ImGui::MenuItem("Shutdown");
 
 			ImGui::EndMenu();
@@ -32,6 +43,12 @@ void Fuse::Menubar::OnImGuiRender()
 
 			ImGui::EndMenu();
 		}
+
+		if (Menus::NewProject::m_IsActive)
+		{
+			Menus::NewProject::ShowCreateProjectMenu();
+		}
+
 		ImGui::EndMenuBar();
 	}
 }

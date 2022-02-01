@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../../../Editor/src/EditorWindow/Editor.h"
+#include "../EditorWindow/Editor.h"
 #include "../../../Fuse/src/Layers/InputLayer/InputLayer.h"
+#include "../../../Fuse/src/Theme/ImGuiTheme.h"
 
 #include "../../../Fuse/Vendor/ImGui/imgui.h"
 #include "../../../Fuse/Vendor/ImGui/imgui_impl_glfw.h"
@@ -9,15 +10,14 @@
 
 #include <string>
 #include <iostream>
-#include "../../../Fuse/src/Theme/ImGuiTheme.h"
 
-namespace Fuse
+namespace Utils
 {
 	class Window
 	{
 		public:
 			Window();
-			Window(Fuse::Editor& editor)
+			Window(Editor::EditorWindow& editor)
 			{
 				m_Window = nullptr;
 				m_Editor = &editor;
@@ -42,9 +42,6 @@ namespace Fuse
 		public:
 			static void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 
-		public:
-			void SetEditor(Fuse::Editor& editor) { m_Editor = &editor; }
-
 		private:
 			uint32_t m_WindowWidth = 1920;
 			uint32_t m_WindowHeight = 1080;
@@ -53,7 +50,7 @@ namespace Fuse
 
 		private:
 			Fuse::InputLayer m_InputLayer;
-			Fuse::Editor* m_Editor;
+			Editor::EditorWindow* m_Editor;
 
 		private:
 			GLFWwindow* m_Window;

@@ -1,13 +1,13 @@
 #pragma once
 #include "../../../Fuse/src/Panels/PanelManager/PanelManager.h"
 
-namespace Fuse
+namespace Editor
 {
-	class Editor
+	class EditorWindow
 	{
 		public:
-			Editor();
-			~Editor();
+			EditorWindow();
+			~EditorWindow();
 
 		public:
 			void RenderEditor();
@@ -27,16 +27,16 @@ namespace Fuse
 			ImGuiID m_DockSpaceID = 0;
 
 		private:
-			Fuse::Menubar m_MenuBar;
+			Editor::Menubar m_MenuBar;
 
-			Fuse::Profiler m_Profiler;
-			Fuse::SceneViewport m_SceneView;
-			Fuse::GameViewport m_GameView;
-			Fuse::SceneHierarchy m_SceneHierarchy;
-			Fuse::Resources m_Resources;
-			Fuse::Inspector m_Inspector;
-			Fuse::Console m_Console;
-			Fuse::AssetBrowser m_AssetBrowser;
+			Editor::Profiler m_Profiler;
+			Editor::SceneViewport m_SceneView;
+			Editor::GameViewport m_GameView;
+			Editor::SceneHierarchy m_SceneHierarchy;
+			Editor::Resources m_Resources;
+			Editor::Inspector m_Inspector;
+			Editor::Console m_Console;
+			Editor::AssetBrowser m_AssetBrowser;
 
 		private:
 			Fuse::PanelManager m_PanelManager;

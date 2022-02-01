@@ -3,7 +3,7 @@
 #include "../../../../Fuse/src/SceneManager/SceneManager.h"
 #include "../../../../Fuse/Vendor/Entt/entt.hpp"
 
-namespace Fuse
+namespace Editor
 {
 	enum class m_EntityOptions { EmptyEntity, Entity, Sprite };
 

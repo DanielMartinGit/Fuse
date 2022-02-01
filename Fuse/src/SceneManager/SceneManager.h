@@ -24,6 +24,7 @@ namespace Fuse
 		public:
 			static uint32_t GetSceneFBO() { return m_CurrentScene->GetRenderer().GetFramebufferObject(); }
 			static Fuse::EntitySystem& GetEntitySystem() { return m_CurrentScene->GetEntitySystem(); }
+			static Fuse::Scene& GetLoadedScene() { return *m_CurrentScene; }
 
 		private:
 			inline static Fuse::Scene* m_CurrentScene;

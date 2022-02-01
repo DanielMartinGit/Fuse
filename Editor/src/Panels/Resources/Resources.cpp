@@ -1,20 +1,20 @@
 #include "Resources.h"
 
-Fuse::Resources::Resources()
+Editor::Resources::Resources()
 {
 	m_ShaderCount = 0;
 	m_TextureCount = 0;
 }
-Fuse::Resources::~Resources() {}
+Editor::Resources::~Resources() {}
 
-void Fuse::Resources::AddAllResources()
+void Editor::Resources::AddAllResources()
 {
 	// Used to loop through all resources stored in the ResourceManager and add them to the list
 	m_TextureCount = Fuse::ResourceManager::GetTextureCount();
 	m_ShaderCount = Fuse::ResourceManager::GetShaderCount();
 }
 
-void Fuse::Resources::OnImGuiRender()
+void Editor::Resources::OnImGuiRender()
 {
 	ImGui::Begin("Resources", &GetActiveState());
 

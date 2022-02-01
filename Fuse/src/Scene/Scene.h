@@ -54,6 +54,7 @@ namespace Fuse
 		public:
 			Fuse::Renderer2D& GetRenderer() { return m_Renderer; }
 			Fuse::EntitySystem& GetEntitySystem() { return m_EntitySystem; }
+			std::string& GetSceneName() { return m_SceneName; }
 
 		private:
 			std::string m_SceneName;

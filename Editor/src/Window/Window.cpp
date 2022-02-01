@@ -1,17 +1,17 @@
 #include "Window.h"
 
-Fuse::Window::Window() 
+Utils::Window::Window()
 { 
 	m_Window = nullptr; 
 	m_Editor = nullptr;
 }
-Fuse::Window::~Window() {}
+Utils::Window::~Window() {}
 
-void Fuse::Window::Initialise()
+void Utils::Window::Initialise()
 {
 	InitialiseOpenGL();
 	InitialiseWindow();
-	InitialiseGLAD();  
+	InitialiseGLAD();
 	InitialiseLayers();
 	InitialiseImGui();
 
@@ -20,13 +20,13 @@ void Fuse::Window::Initialise()
 	MainWindowLoop();
 }
 
-void Fuse::Window::InitialiseOpenGL()
+void Utils::Window::InitialiseOpenGL()
 {
 	// Initialise GLFW
 	glfwInit();
 }
 
-void Fuse::Window::InitialiseGLAD()
+void Utils::Window::InitialiseGLAD()
 {
 	// Using GLAD, load all the OpenGL Function Pointers
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -39,7 +39,7 @@ void Fuse::Window::InitialiseGLAD()
 	glViewport(0, 0, m_WindowWidth, m_WindowHeight);
 }
 
-void Fuse::Window::InitialiseImGui()
+void Utils::Window::InitialiseImGui()
 {
 	// Initalise ImGui
 	IMGUI_CHECKVERSION();
@@ -54,7 +54,7 @@ void Fuse::Window::InitialiseImGui()
 	m_EditorTheme.SetStyle();
 }
 
-void Fuse::Window::InitialiseWindow()
+void Utils::Window::InitialiseWindow()
 {
 	// Create a new GLFW Window with the specified width, height and title
 	m_Window = glfwCreateWindow(m_WindowWidth, m_WindowHeight, m_WindowTitle, NULL, NULL);
@@ -73,7 +73,7 @@ void Fuse::Window::InitialiseWindow()
 	glfwSetFramebufferSizeCallback(m_Window, FramebufferSizeCallback);
 }
 
-void Fuse::Window::InitialiseLayers()
+void Utils::Window::InitialiseLayers()
 {
 	m_InputLayer.InitialiseCallback(m_Window);
 	m_InputLayer.OnCreate();
@@ -81,7 +81,7 @@ void Fuse::Window::InitialiseLayers()
 	m_Layers.emplace_back(m_InputLayer);
 }
 
-void Fuse::Window::MainWindowLoop()
+void Utils::Window::MainWindowLoop()
 {
 	while (!glfwWindowShouldClose(m_Window))
 	{
@@ -111,7 +111,7 @@ void Fuse::Window::MainWindowLoop()
 	glfwTerminate();
 }
 
-void Fuse::Window::Render()
+void Utils::Window::Render()
 {
 	// Create a new frame for ImGui
 	ImGui_ImplOpenGL3_NewFrame();
@@ -126,7 +126,7 @@ void Fuse::Window::Render()
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-void Fuse::Window::ProcessInput()
+void Utils::Window::ProcessInput()
 {
 	if (glfwGetKey(m_Window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
@@ -137,7 +137,7 @@ void Fuse::Window::ProcessInput()
 	m_InputLayer.OnUpdate();
 }
 
-void Fuse::Window::FramebufferSizeCallback(GLFWwindow* window, int width, int height)
+void Utils::Window::FramebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 }

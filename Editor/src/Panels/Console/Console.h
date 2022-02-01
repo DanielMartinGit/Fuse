@@ -2,7 +2,7 @@
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
 #include <string>
 
-namespace Fuse
+namespace Editor
 {
 	enum class MessageType { MESSAGE, WARNING, ERROR, ACTION };
 

@@ -1584,6 +1584,7 @@
     <ClInclude Include="src\Timer\Timer.h">
       <Filter>src\Timer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ProjectManager\ProjectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c">
@@ -1655,6 +1656,7 @@
     <ClCompile Include="src\SceneManager\SceneManager.cpp">
       <Filter>src\SceneManager</Filter>
     </ClCompile>
+    <ClCompile Include="src\ProjectManager\ProjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\Libraries\Fuse\Fuse.lib">

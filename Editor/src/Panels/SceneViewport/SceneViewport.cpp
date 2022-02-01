@@ -1,9 +1,9 @@
 #include "SceneViewport.h"
 
-Fuse::SceneViewport::SceneViewport() {}
-Fuse::SceneViewport::~SceneViewport() {}
+Editor::SceneViewport::SceneViewport() {}
+Editor::SceneViewport::~SceneViewport() {}
 
-void Fuse::SceneViewport::OnImGuiRender()
+void Editor::SceneViewport::OnImGuiRender()
 {
 	ImGui::Begin("Scene View", &GetActiveState(), ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoTitleBar);
 

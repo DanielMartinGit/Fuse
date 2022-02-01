@@ -55,7 +55,7 @@ uint32_t Fuse::ResourceManager::LoadTexture(const char* path)
 			++m_TextureCount;
 			m_LoadedTextures[path] = textureID;
 
-			Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Texture Loaded!");
+			Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Texture Loaded!");
 		}
 		else
 		{

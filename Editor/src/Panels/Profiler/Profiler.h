@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-namespace Fuse
+namespace Editor
 {
 	class Profiler : public Fuse::Panel
 	{

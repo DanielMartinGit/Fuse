@@ -1,6 +1,6 @@
 #include "Editor.h"
 
-Fuse::Editor::Editor()
+Editor::EditorWindow::EditorWindow()
 {
 	m_FPS = 0;
 
@@ -17,19 +17,19 @@ Fuse::Editor::Editor()
 	m_PanelManager.AddPanel("Console", &m_Console);
 	m_PanelManager.AddPanel("Asset Browser", &m_AssetBrowser);
 }
-Fuse::Editor::~Editor() {}
+Editor::EditorWindow::~EditorWindow() {}
 
-void Fuse::Editor::ProcessInput(GLFWwindow* window) {}
+void Editor::EditorWindow::ProcessInput(GLFWwindow* window) {}
 
-void Fuse::Editor::SetupScene()
+void Editor::EditorWindow::SetupScene()
 {
-	m_Scene = Fuse::Scene("Main Menu");
+	m_Scene = Fuse::Scene("Untitled Scene");
 	Fuse::SceneManager::OnSceneLoaded(m_Scene);
 
 	m_Resources.AddAllResources();
 }
 
-void Fuse::Editor::RenderEditor()
+void Editor::EditorWindow::RenderEditor()
 {
 	ImGui::Begin("Editor", 0, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoDocking);
 	
@@ -51,13 +51,13 @@ void Fuse::Editor::RenderEditor()
 	ImGui::End();
 }
 
-void Fuse::Editor::RenderActivePanels()
+void Editor::EditorWindow::RenderActivePanels()
 {
 	m_MenuBar.OnImGuiRender();
 	m_PanelManager.RenderActivePanels();
 }
 
-void Fuse::Editor::RunLoadedScene()
+void Editor::EditorWindow::RunLoadedScene()
 {
 	Fuse::DeltaTime::CalculateDeltaTime();
 
@@ -68,13 +68,13 @@ void Fuse::Editor::RunLoadedScene()
 	m_Resources.AddAllResources();
 }
 
-void Fuse::Editor::HandlePanelDocking()
+void Editor::EditorWindow::HandlePanelDocking()
 {
 	m_DockSpaceID = ImGui::GetID("MainDockSpace");
 	ImGui::DockSpace(m_DockSpaceID, ImVec2(0.f, 0.f), ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode);
 }
 
-void Fuse::Editor::CalculateFPSFrametime()
+void Editor::EditorWindow::CalculateFPSFrametime()
 {
 	m_CurrentTime = glfwGetTime();
 	m_FPS++;
