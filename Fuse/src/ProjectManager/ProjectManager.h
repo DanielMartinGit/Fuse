@@ -1,6 +1,9 @@
 #pragma once
 #include "../../Vendor/JSON/json.hpp"
+#include "../../../Editor/src/Panels/Console/Console.h"
+#include "../SceneManager/SceneManager.h"
 
+#include <fstream>
 #include <iostream>
 
 namespace Fuse

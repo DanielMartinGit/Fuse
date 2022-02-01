@@ -192,3 +192,17 @@ void Fuse::ShaderProgram::SetUniformMatrix4(const char* uniformName, const glm::
 	GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
 	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 }
+
+void Fuse::ShaderProgram::ClearProgram()
+{
+	m_FragmentShader = 0;
+	m_VertexShader = 0;
+	m_ComputeShader = 0;
+	m_ShaderProgramID = 0;
+
+	m_VertexShaderCode = "";
+	m_FragmentShaderCode = "";
+	m_ComputeShaderCode = "";
+
+	m_Shaders.clear();
+}

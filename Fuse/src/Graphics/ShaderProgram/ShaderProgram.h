@@ -27,6 +27,8 @@ namespace Fuse
 			void Link();
 			void Use();
 
+			void ClearProgram();
+
 		public:
 			bool CheckShaderCompilation(GLuint shader, const char* shaderName);
 			bool CheckShaderLink(GLuint shaderProgram);

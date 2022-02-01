@@ -11,6 +11,7 @@ namespace Fuse
 			~SceneManager();
 
 		public:
+			static void OnSceneCreated(const char* sceneName);
 			static void OnSceneLoaded(Fuse::Scene& scene);
 
 			static void OnSceneInput(double deltaTime);

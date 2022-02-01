@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../../Fuse/src/ProjectManager/ProjectManager.h"
+#include "../../Panels/Console/Console.h"
 #include "../../../../Fuse/Vendor/ImGui/imgui.h"
 
 namespace Menus
@@ -17,14 +18,12 @@ namespace Menus
 			static void ShowCreateProjectMenu()
 			{
 				ImGui::Begin("New Project", &m_IsActive, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoDocking);
-				ImGui::SetWindowSize(ImVec2(460, 300));
+				ImGui::SetWindowSize(ImVec2(460, 200));
 
 				ImGui::Text("Project Name:");
-				ImGui::SameLine();
 				ImGui::InputText("##name", m_ProjectName, 128);
 
 				ImGui::Text("Project Destination:");
-				ImGui::SameLine();
 				ImGui::InputText("##destination", m_ProjectDestination, 128);
 
 				ImGui::Separator();
@@ -33,6 +32,8 @@ namespace Menus
 				{
 					if (Fuse::ProjectManager::CreateNewProject(m_ProjectName, m_ProjectDestination))
 						m_IsActive = false;
+					else
+						Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Invalid project path or name");
 				}
 
 				ImGui::End();

@@ -16,11 +16,12 @@ namespace Fuse
 		public:
 			void OnSceneLoaded()
 			{
+				Fuse::ResourceManager::GetShaderProgram().ClearProgram();
+
 				m_CameraController = Fuse::EditorCameraController(1469, 738);
 
 				Fuse::Renderer2D::InitialiseRenderer(*m_CameraController.GetCamera());
 
-				std::cout << "Scene Loaded: " << m_SceneName << std::endl;
 				Fuse::ResourceManager::LoadShader("Vertex", GL_VERTEX_SHADER, "Resources/Shaders/Base/VertexShader.vert");
 				Fuse::ResourceManager::LoadShader("Fragment", GL_FRAGMENT_SHADER, "Resources/Shaders/Base/FragmentShader.frag");
 				Fuse::ResourceManager::LinkShaders();
@@ -48,7 +49,7 @@ namespace Fuse
 
 			void OnSceneUnloaded()
 			{
-				
+
 			}
 
 		public:

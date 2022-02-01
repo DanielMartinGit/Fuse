@@ -1,5 +1,4 @@
 #include "ProjectManager.h"
-#include "../../../Editor/src/Panels/Console/Console.h"
 
 Fuse::ProjectManager::ProjectManager() {}
 Fuse::ProjectManager::~ProjectManager() {}
@@ -16,8 +15,11 @@ bool Fuse::ProjectManager::CreateNewProject(const char* projectName, const char*
 		std::filesystem::create_directory((std::string)projectPath + "/" + (std::string)projectName + "/" + "Library");
 		std::filesystem::create_directory((std::string)projectPath + "/" + (std::string)projectName + "/" + "Project Settings");
 
-		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Created Project!");
+		std::ofstream scene((std::string)projectPath + "\\" + (std::string)projectName + "/Assets/" + (std::string)projectName + ".scene");
 		
+		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Created Project!");
+
+		Fuse::SceneManager::OnSceneCreated(projectName);		
 		return true;
 	}
 	else

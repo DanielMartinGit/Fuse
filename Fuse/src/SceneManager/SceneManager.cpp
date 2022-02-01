@@ -3,6 +3,15 @@
 Fuse::SceneManager::SceneManager() { m_CurrentScene = nullptr; }
 Fuse::SceneManager::~SceneManager() {}
 
+void Fuse::SceneManager::OnSceneCreated(const char* sceneName)
+{
+	OnSceneUnloaded();
+	m_CurrentScene = new Fuse::Scene(sceneName);
+	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Created");
+	OnSceneLoaded(*m_CurrentScene);
+	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Loaded");
+}
+
 void Fuse::SceneManager::OnSceneLoaded(Fuse::Scene& scene)
 {
 	m_CurrentScene = &scene;
@@ -40,7 +49,12 @@ void Fuse::SceneManager::OnSceneChanged(Fuse::Scene& scene)
 void Fuse::SceneManager::OnSceneUnloaded()
 {
 	if (m_CurrentScene != nullptr)
+	{
 		m_CurrentScene->OnSceneUnloaded();
+		m_CurrentScene = nullptr;
+
+		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Unloaded");
+	}
 }
 
 void Fuse::SceneManager::OnSceneRemoved(Fuse::Scene* scene)
