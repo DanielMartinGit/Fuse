@@ -12,7 +12,6 @@ Editor::SceneHierarchy::SceneHierarchy()
 
 	m_ShowEntityOptions = false;
 }
-
 Editor::SceneHierarchy::~SceneHierarchy() {}
 
 void Editor::SceneHierarchy::OnImGuiRender()
@@ -23,6 +22,9 @@ void Editor::SceneHierarchy::OnImGuiRender()
 	{
 		m_ShowEntityOptions = true;
 	}
+
+	ImGui::SameLine(ImGui::GetWindowWidth() - 190);
+	ImGui::InputText("##Search", m_SearchText, 255);
 
 	if (m_ShowEntityOptions)
 		ShowEntityOptions();

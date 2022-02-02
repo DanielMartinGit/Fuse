@@ -25,6 +25,8 @@ namespace Editor
 			inline static entt::entity* m_SelectedEntity;
 
 		private:
+			char m_SearchText[255] = "";
+
 			m_EntityOptions m_EntityTypes;
 
 			bool m_ShowEntityOptions;
