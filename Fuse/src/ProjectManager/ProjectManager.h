@@ -1,10 +1,9 @@
 #pragma once
-#include "../../Vendor/JSON/json.hpp"
 #include "../../../Editor/src/Panels/Console/Console.h"
+#include "../../../Editor/src/Panels/AssetBrowser/AssetBrowser.h"
 #include "../SceneManager/SceneManager.h"
 
 #include <fstream>
-#include <iostream>
 
 namespace Fuse
 {
@@ -15,21 +14,25 @@ namespace Fuse
 			~ProjectManager();
 
 		public:
-			static bool CreateNewProject(const char* name, const char* path);
+			static bool CreateNewProject(std::string name, std::string path);
 
 		public:
 			static void LoadProject(const char* path);
 			static void UnloadLoadedProject();
+			static void SaveProject();
 
 		private:
 			struct m_LoadedProject
 			{
-				const char* m_ProjectName = "";
-				const char* m_ProjectPath = "";
-				nlohmann::json m_SceneFile;
+				std::string m_ProjectName = "";
+				std::string m_ProjectPath = "";
 			};
 
+		public:
+			static m_LoadedProject& GetLoadedProject() { return m_Project; }
+
 		private:
+			inline static std::ofstream scene;
 			inline static m_LoadedProject m_Project;
 	};
 }

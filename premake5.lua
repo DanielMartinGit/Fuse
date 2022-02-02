@@ -37,8 +37,8 @@ project "Fuse"
 		"%prj.name/Vendor/GLM/",
 		"%prj.name/Vendor/ImGui/",
 		"%prj.name/Vendor/ImGuizmo/",
-		"%prj.name/Vendor/JSON/",
 		"%prj.name/Vendor/STB/",
+		"%prj.name/Vendor/JSON/",
 
 		"%prj.name/Vendor/",
 		"%prj.name/src/"

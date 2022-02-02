@@ -56,7 +56,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor\STB;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\STB;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
@@ -74,7 +74,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\De
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor\STB;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\STB;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
@@ -89,7 +89,6 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\ProjectManager\ProjectManager.h" />
     <ClInclude Include="Vendor\Entt\entt.hpp" />
     <ClInclude Include="Vendor\GLAD\KHR\khrplatform.h" />
     <ClInclude Include="Vendor\GLAD\glad.h" />
@@ -569,14 +568,15 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="src\Layers\InputLayer\InputLayer.h" />
     <ClInclude Include="src\Panels\BasePanel\Panel.h" />
     <ClInclude Include="src\Panels\PanelManager\PanelManager.h" />
+    <ClInclude Include="src\ProjectManager\ProjectManager.h" />
     <ClInclude Include="src\ResourceManager\ResourceManager.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\SceneManager\SceneManager.h" />
     <ClInclude Include="src\Theme\ImGuiTheme.h" />
     <ClInclude Include="src\Timer\Timer.h" />
+    <ClInclude Include="src\JSOn\JsonHandler.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ProjectManager\ProjectManager.cpp" />
     <ClCompile Include="Vendor\GLAD\glad.c" />
     <ClCompile Include="Vendor\GLM\detail\glm.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui.cpp" />
@@ -598,6 +598,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClCompile Include="src\Graphics\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Panels\PanelManager\PanelManager.cpp" />
+    <ClCompile Include="src\ProjectManager\ProjectManager.cpp" />
     <ClCompile Include="src\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="src\SceneManager\SceneManager.cpp" />
   </ItemGroup>

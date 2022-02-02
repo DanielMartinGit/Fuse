@@ -115,6 +115,9 @@
     <Filter Include="src\Panels\PanelManager">
       <UniqueIdentifier>{395B1BC0-A592-6357-AE9C-C77A1A538A50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ProjectManager">
+      <UniqueIdentifier>{EE733C7C-DA57-FDD1-43B8-F7242FBBE753}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ResourceManager">
       <UniqueIdentifier>{3F4EAE55-ABAF-8B63-341D-D215A07DC222}</UniqueIdentifier>
     </Filter>
@@ -129,6 +132,9 @@
     </Filter>
     <Filter Include="src\Timer">
       <UniqueIdentifier>{BD89E7B3-29F4-9B2A-7232-4DD0DEDB797F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Yaml">
+      <UniqueIdentifier>{CFA728CF-BB74-83DA-E48D-7182D0B9B868}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1569,6 +1575,9 @@
     <ClInclude Include="src\Panels\PanelManager\PanelManager.h">
       <Filter>src\Panels\PanelManager</Filter>
     </ClInclude>
+    <ClInclude Include="src\ProjectManager\ProjectManager.h">
+      <Filter>src\ProjectManager</Filter>
+    </ClInclude>
     <ClInclude Include="src\ResourceManager\ResourceManager.h">
       <Filter>src\ResourceManager</Filter>
     </ClInclude>
@@ -1584,7 +1593,9 @@
     <ClInclude Include="src\Timer\Timer.h">
       <Filter>src\Timer</Filter>
     </ClInclude>
-    <ClInclude Include="src\ProjectManager\ProjectManager.h" />
+    <ClInclude Include="src\JSOn\JsonHandler.h">
+      <Filter>src\Yaml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c">
@@ -1650,13 +1661,15 @@
     <ClCompile Include="src\Panels\PanelManager\PanelManager.cpp">
       <Filter>src\Panels\PanelManager</Filter>
     </ClCompile>
+    <ClCompile Include="src\ProjectManager\ProjectManager.cpp">
+      <Filter>src\ProjectManager</Filter>
+    </ClCompile>
     <ClCompile Include="src\ResourceManager\ResourceManager.cpp">
       <Filter>src\ResourceManager</Filter>
     </ClCompile>
     <ClCompile Include="src\SceneManager\SceneManager.cpp">
       <Filter>src\SceneManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\ProjectManager\ProjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\Libraries\Fuse\Fuse.lib">

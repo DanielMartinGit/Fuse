@@ -31,7 +31,9 @@ namespace Menus
 				if(ImGui::Button("Create", ImVec2(50, 20)))
 				{
 					if (Fuse::ProjectManager::CreateNewProject(m_ProjectName, m_ProjectDestination))
+					{
 						m_IsActive = false;
+					}
 					else
 						Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Invalid project path or name");
 				}

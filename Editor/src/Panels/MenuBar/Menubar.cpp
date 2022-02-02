@@ -10,7 +10,7 @@ void Editor::Menubar::OnImGuiRender()
 		if (ImGui::BeginMenu("File"))
 		{
 			ImGui::MenuItem("Open");
-			ImGui::MenuItem("Save");
+			if (ImGui::MenuItem("Save")) { Fuse::ProjectManager::SaveProject(); }
 
 			ImGui::Separator();
 
