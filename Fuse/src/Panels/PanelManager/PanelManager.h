@@ -24,6 +24,7 @@ namespace Fuse
 
 		public:
 			void RenderActivePanels();
+			void LoadPanelResources();
 
 		public:
 			void AddPanel(const char* name, Fuse::Panel* panel);

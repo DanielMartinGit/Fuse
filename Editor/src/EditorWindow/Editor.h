@@ -30,7 +30,7 @@ namespace Editor
 			Editor::Menubar m_MenuBar;
 
 			Editor::Profiler m_Profiler;
-			Editor::SceneViewport m_SceneView;
+			Editor::SceneViewport m_SceneViewport;
 			Editor::GameViewport m_GameView;
 			Editor::SceneHierarchy m_SceneHierarchy;
 			Editor::Resources m_Resources;

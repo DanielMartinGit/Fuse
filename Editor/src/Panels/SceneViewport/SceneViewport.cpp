@@ -8,12 +8,13 @@ void Editor::SceneViewport::OnImGuiRender()
 	ImGui::Begin("Scene View", &GetActiveState(), ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoTitleBar);
 
 	ImGui::Begin("##Controls", &GetActiveState(), ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoResize);
+	ImGui::SetWindowSize(ImVec2(132, 47));
 	
-	ImGui::Button("move", ImVec2(100, 20));
+	ImGui::ImageButton((ImTextureID)m_MoveIcon, ImVec2(25, 25));
 	ImGui::SameLine();
-	ImGui::Button("rotate", ImVec2(100, 20));
+	ImGui::ImageButton((ImTextureID)m_RotateIcon, ImVec2(25, 25));
 	ImGui::SameLine();
-	ImGui::Button("scale", ImVec2(100, 20));
+	ImGui::ImageButton((ImTextureID)m_ScaleIcon, ImVec2(25, 25));
 
 	ImGui::End();
 

@@ -49,7 +49,7 @@ namespace Fuse
 
 			void OnSceneUnloaded()
 			{
-
+				m_EntitySystem.GetWorld()->clear();
 			}
 
 		public:

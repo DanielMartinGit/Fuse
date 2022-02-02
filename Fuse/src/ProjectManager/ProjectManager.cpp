@@ -25,7 +25,6 @@ bool Fuse::ProjectManager::CreateNewProject(std::string projectName, std::string
 		m_Project.m_ProjectName = projectName;
 		m_Project.m_ProjectPath = projectPath;
 
-		Editor::AssetBrowser::LoadAssetBrowserIcons();
 		Editor::AssetBrowser::SetProjectPath(m_Project.m_ProjectPath);
 		Fuse::SceneManager::OnSceneCreated(projectName.c_str());		
 

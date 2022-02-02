@@ -17,7 +17,7 @@ namespace Editor
 		public:
 			void OnImGuiRender() override;
 
-			static void LoadAssetBrowserIcons()
+			static void LoadResources()
 			{
 				m_FolderIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/FolderIcon.png");
 				m_FileIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/FileIcon.png");

@@ -9,7 +9,7 @@ Editor::EditorWindow::EditorWindow()
 	m_LastTime = 0;
 
 	m_PanelManager.AddPanel("Stats", &m_Profiler);
-	m_PanelManager.AddPanel("Scene View", &m_SceneView);
+	m_PanelManager.AddPanel("Scene View", &m_SceneViewport);
 	//m_PanelManager.AddPanel("Game View", &m_GameView);
 	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
 	m_PanelManager.AddPanel("Resources", &m_Resources);
@@ -25,6 +25,9 @@ void Editor::EditorWindow::SetupScene()
 {
 	m_Scene = Fuse::Scene("Untitled Scene");
 	Fuse::SceneManager::OnSceneLoaded(m_Scene);
+
+	m_SceneViewport.LoadResources();
+	m_AssetBrowser.LoadResources();
 
 	m_Resources.AddAllResources();
 }
