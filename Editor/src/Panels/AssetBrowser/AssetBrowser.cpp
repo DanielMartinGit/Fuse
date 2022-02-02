@@ -26,24 +26,66 @@ void Editor::AssetBrowser::OnImGuiRender()
 		ImGui::Button("Refresh", ImVec2(100, 20));
 		ImGui::Separator();
 
-		for (auto& directoryEntry : std::filesystem::directory_iterator(m_CurrentDirectory))
+		if (!m_isCompact)
 		{
-			auto relativePath = std::filesystem::relative(directoryEntry.path(), m_AssetsDirectory);
-			std::string filename = relativePath.filename().string();
+			m_ThumbnailSize = 60.0f;
+			m_SameLineText = false;
+			m_PanelWidth = ImGui::GetContentRegionAvail().x;
+			m_CellSize = m_ThumbnailSize + m_ThumbnailPadding;
 
-			if (directoryEntry.is_directory())
+			m_ColumnCount = (int)(m_PanelWidth / m_CellSize);
+
+			if (m_ColumnCount < 1) m_ColumnCount = 1;
+
+			ImGui::Columns(m_ColumnCount, 0, false);
+		}
+		else
+		{
+			m_ColumnCount = 1;
+			m_SameLineText = true;
+			m_ThumbnailSize = 20.0f;
+			ImGui::Columns(m_ColumnCount, 0, false);
+		}
+
+		try
+		{
+			for (auto& directoryEntry : std::filesystem::directory_iterator(m_CurrentDirectory))
 			{
-				if (ImGui::Button(filename.c_str()))
+				auto relativePath = std::filesystem::relative(directoryEntry.path(), m_AssetsDirectory);
+				std::string filename = relativePath.filename().string();
+
+				if (directoryEntry.is_directory())
 				{
-					m_CurrentDirectory /= directoryEntry.path().filename();
+					if (ImGui::ImageButton((ImTextureID)m_FolderIcon, ImVec2(m_ThumbnailSize, m_ThumbnailSize)))
+					{
+						m_CurrentDirectory /= directoryEntry.path().filename();
+					}
 				}
-			}
-			else
-			{
-				if (ImGui::Button(filename.c_str()))
-				{	
+				else
+				{
+					if (ImGui::ImageButton((ImTextureID)m_FileIcon, ImVec2(m_ThumbnailSize, m_ThumbnailSize)))
+					{
+					}
 				}
+
+				if (!m_SameLineText)
+				{
+					ImGui::Text(filename.c_str());
+				}
+				else
+				{
+					ImGui::SameLine();
+					ImGui::Text(filename.c_str());
+				}
+
+				ImGui::NextColumn();
 			}
+
+			ImGui::Columns(1);
+		}
+		catch (std::filesystem::filesystem_error& error)
+		{
+			Editor::Console::PrintToConsole(Editor::MessageType::ERROR, error.what());
 		}
 	}
 

@@ -1,15 +1,17 @@
 #include "ResourceManager.h"
 
-int Fuse::ResourceManager::m_TextureCount = 0;
-
 Fuse::ResourceManager::ResourceManager() {}
 Fuse::ResourceManager::~ResourceManager() {}
 
-uint32_t Fuse::ResourceManager::LoadTexture(const char* path)
+uint32_t& Fuse::ResourceManager::LoadTexture(const char* path)
 {
 	unsigned int textureID = 0;
 
-	if (m_LoadedTextures.find(path) == m_LoadedTextures.end())
+	if (m_LoadedTextures.find(path) != m_LoadedTextures.end())
+	{
+		textureID = m_LoadedTextures[path];
+	}
+	else
 	{
 		glGenTextures(1, &textureID);
 		glBindTexture(GL_TEXTURE_2D, textureID);
@@ -28,12 +30,12 @@ uint32_t Fuse::ResourceManager::LoadTexture(const char* path)
 		if (data)
 		{
 			GLenum textureFormat = 0;
-			
+
 			switch (nrChannels)
 			{
 				case 1:
 				{
-				textureFormat = GL_RED;
+					textureFormat = GL_RED;
 				}
 					break;
 				case 3:
@@ -56,10 +58,6 @@ uint32_t Fuse::ResourceManager::LoadTexture(const char* path)
 			m_LoadedTextures[path] = textureID;
 
 			Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Texture Loaded!");
-		}
-		else
-		{
-			textureID = m_LoadedTextures[path];
 		}
 	}
 

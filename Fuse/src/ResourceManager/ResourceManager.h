@@ -11,7 +11,7 @@ namespace Fuse
 			~ResourceManager();
 
 		public:
-			static uint32_t LoadTexture(const char* path);
+			static uint32_t& LoadTexture(const char* path);
 			static void LoadShader(const char* shaderName, GLuint shaderType, const char* shaderPath);
 			static void LinkShaders() { m_ShaderProgram.Link(); }
 
@@ -24,7 +24,7 @@ namespace Fuse
 
 		public:
 			inline static Fuse::ShaderProgram m_ShaderProgram;
-			static int m_TextureCount;
+			inline static int m_TextureCount;
 
 		private:
 			inline static std::unordered_map<std::string, uint32_t> m_LoadedTextures;
