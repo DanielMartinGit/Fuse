@@ -17,13 +17,13 @@ bool Fuse::ProjectManager::CreateNewProject(std::string projectName, std::string
 		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Library");
 		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Project Settings");
 
-		std::ofstream scene((std::string)destinationPath + "/" + (std::string)projectName + "/Assets/" + (std::string)projectName + ".scene");
-		std::string projectPath = destinationPath + "/" + (std::string)projectName + "/Assets";
-
 		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Created Project!");
+
+		std::string projectPath = destinationPath + "/" + (std::string)projectName + "/Assets";
 
 		m_Project.m_ProjectName = projectName;
 		m_Project.m_ProjectPath = projectPath;
+		m_Project.m_SceneFile = std::ofstream(projectPath + "/" + (std::string)projectName + ".scene");
 
 		Editor::AssetBrowser::SetProjectPath(m_Project.m_ProjectPath);
 		Fuse::SceneManager::OnSceneCreated(projectName.c_str());		
@@ -43,17 +43,24 @@ void Fuse::ProjectManager::LoadProject(const char* path)
 
 void Fuse::ProjectManager::SaveProject()
 {
-	auto view = Fuse::EntitySystem::GetWorld()->view<Fuse::Entity>();
-
-	for (auto entity : view)
+	if (m_Project.m_SceneFile.good() && m_Project.m_SceneFile.is_open())
 	{
-		
-	}
+		auto view = Fuse::EntitySystem::GetWorld()->view<Fuse::Entity>();
 
-	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Saved");
+		for (auto entity : view)
+		{
+			Utils::JsonHandler::SerialiseEntity(entity, m_Project.m_SceneFile);
+		}
+
+		std::string message = "Scene Saved with ";
+		message.append(std::to_string(view.size()) + " entities");
+		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, message.c_str());
+	}
 }
 
 void Fuse::ProjectManager::UnloadLoadedProject()
 {
-
+	m_Project.m_ProjectName = "";
+	m_Project.m_ProjectPath = "";
+	m_Project.m_SceneFile.close();
 }

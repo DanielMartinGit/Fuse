@@ -14,16 +14,16 @@ void Editor::AssetBrowser::OnImGuiRender()
 
 	if (m_AssetsDirectory != "")
 	{
-		if (m_CurrentDirectory != std::filesystem::path(m_AssetsDirectory))
+		if (ImGui::ImageButton((ImTextureID)m_BackButton, ImVec2(25, 25)))
 		{
-			if (ImGui::Button("<--"))
+			if (m_CurrentDirectory != std::filesystem::path(m_AssetsDirectory))
 			{
 				m_CurrentDirectory = m_CurrentDirectory.parent_path();
 			}
 		}
 
 		ImGui::SameLine();
-		ImGui::Button("Refresh", ImVec2(100, 20));
+		ImGui::ImageButton((ImTextureID)m_RefreshButton, ImVec2(25, 25));
 		ImGui::Separator();
 
 		if (!m_isCompact)

@@ -2,6 +2,7 @@
 #include "../../../Editor/src/Panels/Console/Console.h"
 #include "../../../Editor/src/Panels/AssetBrowser/AssetBrowser.h"
 #include "../SceneManager/SceneManager.h"
+#include "../JSON/JsonHandler.h"
 
 #include <fstream>
 
@@ -26,13 +27,13 @@ namespace Fuse
 			{
 				std::string m_ProjectName = "";
 				std::string m_ProjectPath = "";
+				std::ofstream m_SceneFile;
 			};
 
 		public:
 			static m_LoadedProject& GetLoadedProject() { return m_Project; }
 
 		private:
-			inline static std::ofstream scene;
 			inline static m_LoadedProject m_Project;
 	};
 }

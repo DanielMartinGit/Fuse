@@ -68,8 +68,8 @@ void Utils::Window::InitialiseWindow()
 	}
 
 	glfwMakeContextCurrent(m_Window);
-	glfwSwapInterval(0);
-
+	//glfwSwapInterval(0);
+	
 	glfwSetFramebufferSizeCallback(m_Window, FramebufferSizeCallback);
 }
 
