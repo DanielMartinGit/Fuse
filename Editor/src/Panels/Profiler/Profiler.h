@@ -3,7 +3,7 @@
 #define GLFW_INCLUDE_NONE
 
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
-#include "../../../../Fuse/src/DeltaTime/DeltaTime.h"
+#include "../../../../Fuse/src/Time/Time.h"
 #include "../../../../Fuse/src/Graphics/Rendering/Renderer2D/Renderer2D.h"
 #include "../../../../Fuse/src/ECS/EntitySystem/EntitySystem.h"
 
@@ -28,6 +28,8 @@ namespace Editor
 		
 		private:
 			bool statsPrinted = false;
+
+			const char* m_EngineVersion = "0.0.1";
 			const GLubyte* m_Vendor;
 			const GLubyte* m_Renderer;
 			const GLubyte* m_OpenGlVersion;

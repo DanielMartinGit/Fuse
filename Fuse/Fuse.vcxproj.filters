@@ -1533,7 +1533,7 @@
     <ClInclude Include="Vendor\STB\stb_voxel_render.h">
       <Filter>Vendor\STB</Filter>
     </ClInclude>
-    <ClInclude Include="src\DeltaTime\DeltaTime.h">
+    <ClInclude Include="src\Time\Time.h">
       <Filter>src\DeltaTime</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\Components\Components.h">

@@ -554,7 +554,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="Vendor\STB\stb_tilemap_editor.h" />
     <ClInclude Include="Vendor\STB\stb_truetype.h" />
     <ClInclude Include="Vendor\STB\stb_voxel_render.h" />
-    <ClInclude Include="src\DeltaTime\DeltaTime.h" />
+    <ClInclude Include="src\Time\Time.h" />
     <ClInclude Include="src\ECS\Components\Components.h" />
     <ClInclude Include="src\ECS\EntitySystem\EntitySystem.h" />
     <ClInclude Include="src\ECS\Systems\RenderingSystem.h" />

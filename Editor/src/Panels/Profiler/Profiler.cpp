@@ -32,7 +32,8 @@ void Editor::Profiler::OnImGuiRender()
 	{
 		ImGui::TextWrapped("FPS: %i", m_FPS);
 		ImGui::TextWrapped("Frametime: %04.2f m/s", m_Frametime * 10000);
-		ImGui::TextWrapped("Delta Time: %f", Fuse::DeltaTime::GetDeltaTime());
+		ImGui::TextWrapped("Delta Time: %f", Fuse::Time::GetDeltaTime());
+		ImGui::TextWrapped("Engine Version: %s", m_EngineVersion);
 	}
 	if (ImGui::CollapsingHeader("RENDERING STATS"), ImGuiTreeNodeFlags_DefaultOpen)
 	{
