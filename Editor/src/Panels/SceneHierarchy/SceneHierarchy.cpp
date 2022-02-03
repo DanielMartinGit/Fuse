@@ -5,7 +5,7 @@ Editor::SceneHierarchy::SceneHierarchy()
 	m_EntitySystem = &Fuse::SceneManager::GetEntitySystem();
 	m_EntityCount = 0;
 
-	for (int i = 0; i < 100000; ++i)
+	for (int i = 0; i < 1000; ++i)
 	{
 		m_SelectableBools[i] = false;
 	}

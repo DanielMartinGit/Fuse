@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../Fuse/src/Panels/PanelManager/PanelManager.h"
+#include "../../../Fuse/src/Time/Time.h"
 
 namespace Editor
 {

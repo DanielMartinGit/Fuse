@@ -62,10 +62,10 @@ void Editor::EditorWindow::RenderActivePanels()
 
 void Editor::EditorWindow::RunLoadedScene()
 {
-	Fuse::DeltaTime::CalculateDeltaTime();
+	Fuse::Time::CalculateDeltaTime();
 
-	Fuse::SceneManager::OnSceneInput(Fuse::DeltaTime::GetDeltaTime());
-	Fuse::SceneManager::OnSceneUpdate(Fuse::DeltaTime::GetDeltaTime());
+	Fuse::SceneManager::OnSceneInput(Fuse::Time::GetDeltaTime());
+	Fuse::SceneManager::OnSceneUpdate(Fuse::Time::GetDeltaTime());
 	Fuse::SceneManager::OnSceneRendered();
 
 	m_Resources.AddAllResources();

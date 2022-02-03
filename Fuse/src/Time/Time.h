@@ -3,15 +3,15 @@
 
 namespace Fuse
 {
-	class DeltaTime
+	class Time
 	{
 		public:
-			DeltaTime()
+			Time()
 			{
 				m_DeltaTime = 0.0f;
 				m_LastFrame = 0.0f;
 			}
-			~DeltaTime() {}
+			~Time() {}
 
 		public:
 			static double GetDeltaTime()
