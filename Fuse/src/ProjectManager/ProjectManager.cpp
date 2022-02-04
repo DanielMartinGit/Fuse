@@ -43,19 +43,16 @@ void Fuse::ProjectManager::LoadProject(const char* path)
 
 void Fuse::ProjectManager::SaveProject()
 {
-	if (m_Project.m_SceneFile.good() && m_Project.m_SceneFile.is_open())
+	auto view = Fuse::EntitySystem::GetWorld()->view<Fuse::Entity>();
+
+	for (auto entity : view)
 	{
-		auto view = Fuse::EntitySystem::GetWorld()->view<Fuse::Entity>();
-
-		for (auto entity : view)
-		{
-			Utils::JsonHandler::SerialiseEntity(entity, m_Project.m_SceneFile);
-		}
-
-		std::string message = "Scene Saved with ";
-		message.append(std::to_string(view.size()) + " entities");
-		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, message.c_str());
+		Utils::JsonHandler::SerialiseEntity(entity, m_Project.m_SceneFile);
 	}
+
+	std::string message = "Scene Saved with ";
+	message.append(std::to_string(view.size()) + " entities");
+	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, message.c_str());
 }
 
 void Fuse::ProjectManager::UnloadLoadedProject()

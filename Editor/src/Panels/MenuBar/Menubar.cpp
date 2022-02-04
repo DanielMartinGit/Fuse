@@ -43,6 +43,12 @@ void Editor::Menubar::OnImGuiRender()
 
 			ImGui::EndMenu();
 		}
+		if (ImGui::BeginMenu("Help"))
+		{
+			ImGui::MenuItem("About");
+
+			ImGui::EndMenu();
+		}
 
 		if (Menus::NewProject::m_IsActive)
 		{

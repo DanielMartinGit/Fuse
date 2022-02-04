@@ -13,14 +13,10 @@ namespace Utils
 		public:
 			static void SerialiseEntity(entt::entity& entity, std::ofstream& sceneFile)
 			{
-				nlohmann::json entityToSerialise =
-				{
-					{"Entity Name: ", Fuse::EntitySystem::GetComponent<Fuse::Entity>(entity).GetEntityName() },
-					{"Entity ID: ", Fuse::EntitySystem::GetComponent<Fuse::Entity>(entity).GetEntityID() },
-					{"Entity Tag: ", Fuse::EntitySystem::GetComponent<Fuse::Entity>(entity).GetEntityTag() }
-				};
-
-				sceneFile << std::setw(4) << entityToSerialise;
+				nlohmann::json sceneData;
+				sceneData["Entity Name"] = Fuse::EntitySystem::GetComponent<Fuse::Entity>(entity).GetEntityName();
+				sceneData["Entity Tag"] = Fuse::EntitySystem::GetComponent<Fuse::Entity>(entity).GetEntityTag();
+				sceneFile << std::setw(4) << sceneData;
 			}
 	};
 }

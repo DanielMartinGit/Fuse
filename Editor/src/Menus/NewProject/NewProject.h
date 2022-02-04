@@ -26,8 +26,7 @@ namespace Menus
 				ImGui::Text("Project Destination:");
 				ImGui::InputText("##destination", m_ProjectDestination, 128);
 
-				ImGui::Separator();
-
+				ImGui::SameLine();
 				if(ImGui::Button("Create", ImVec2(50, 20)))
 				{
 					if (Fuse::ProjectManager::CreateNewProject(m_ProjectName, m_ProjectDestination))

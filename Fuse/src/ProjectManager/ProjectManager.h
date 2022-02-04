@@ -28,6 +28,8 @@ namespace Fuse
 				std::string m_ProjectName = "";
 				std::string m_ProjectPath = "";
 				std::ofstream m_SceneFile;
+
+				nlohmann::json m_SceneData;
 			};
 
 		public:
