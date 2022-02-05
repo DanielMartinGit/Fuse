@@ -50,11 +50,11 @@ void Fuse::Renderer2D::DrawSprite(Fuse::Transform& transform, uint32_t& texture)
 {
 	m_Quad.m_QuadTexture = texture;
 
+	m_Transform = transform.GetTransform();
 	m_Transform = glm::mat4(1.0f);
-
-	m_Transform = glm::rotate(m_Transform, glm::radians(transform.GetRotation().x), glm::vec3(0.0f, 0.0f, 1.0f)) * 
-	glm::scale(m_Transform, glm::vec3(transform.GetScale().x, transform.GetScale().y, 1.0f)) *
-	glm::translate(m_Transform, glm::vec3(transform.GetTranslation().x, transform.GetTranslation().y, 1.0f));
+	m_Transform = glm::rotate(m_Transform, glm::radians(transform.GetRotation()), glm::vec3(0.0f, 0.0f, 1.0f)) * 
+	glm::scale(m_Transform, glm::vec3(transform.GetScale().x, transform.GetScale().y, transform.GetScale().z)) *
+	glm::translate(m_Transform, glm::vec3(transform.GetTranslation().x, transform.GetTranslation().y, transform.GetTranslation().z));
 
 	Fuse::ResourceManager::GetShaderProgram().Use();
 	Fuse::ResourceManager::GetShaderProgram().SetUniformMatrix4fv("transform", 1, GL_FALSE, glm::value_ptr(m_Transform));

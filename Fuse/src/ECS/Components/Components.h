@@ -1,7 +1,6 @@
 #pragma once
 #include "../../../Vendor/GLM/glm.hpp"
 #include "../../../Vendor/GLM/gtx/matrix_decompose.hpp"
-#include "../../../ResourceManager/ResourceManager.h"
 
 namespace Fuse
 {
@@ -37,22 +36,34 @@ namespace Fuse
 	{
 		public:
 			Transform()
-			{
+			{				
+				m_Transform = glm::mat4(1.0f);
+
+				m_Rotation = 0.0f;
 				m_Scale = glm::vec3(1.0f, 1.0f, 1.0f);
-				m_Rotation = glm::vec2(0.0f, 0.0f);
-				m_Translation = glm::vec2(0.0f, 0.0f);
+				m_Translation = glm::vec3(0.0f, 0.0f, 0.0f);
 			}
 			~Transform() {}
 
 		public:
-			glm::vec2& GetTranslation() { return m_Translation; }
-			glm::vec2& GetRotation() { return m_Rotation; }
-			glm::vec2& GetScale() { return m_Scale; }
+			glm::mat4& GetTransform() { return m_Transform; }
+			glm::vec3& GetTranslation() { return m_Translation; }
+			float& GetRotation() { return m_Rotation; }
+			glm::vec3& GetScale() { return m_Scale; }
 
 		public:
-			glm::vec2 m_Translation;
-			glm::vec2 m_Scale;
-			glm::vec2 m_Rotation;
+			void RecalculateMatrix()
+			{
+				m_Transform = glm::scale(m_Transform, m_Scale) *
+				glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation), glm::vec3(0, 0, 1)) *
+				glm::translate(glm::mat4(1.0f), m_Translation);
+			}
+
+		public:
+			glm::mat4 m_Transform;
+			glm::vec3 m_Translation;
+			glm::vec3 m_Scale;
+			float m_Rotation;
 	};
 
 	class SpriteRenderer2D

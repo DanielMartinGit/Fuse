@@ -10,7 +10,7 @@ Fuse::EditorCameraController::EditorCameraController()
 
 Fuse::EditorCameraController::EditorCameraController(float width, float height)
 {
-	m_MovementDistance = 0.5f;
+	m_MovementDistance = 10.0f;
 
 	m_TrackedKeys.emplace_back('W');
 	m_TrackedKeys.emplace_back('A');

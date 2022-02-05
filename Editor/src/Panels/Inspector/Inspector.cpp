@@ -104,23 +104,30 @@ void Editor::Inspector::ShowComponents()
 	{
 		auto& transformComponent = Fuse::EntitySystem::GetComponent<Fuse::Transform>(*Editor::SceneHierarchy::GetSelectedEntity());
 		
-		float translation[2] { transformComponent.GetTranslation().x, transformComponent.GetTranslation().y };
-		float scale[2] { transformComponent.GetScale().x, transformComponent.GetScale().y };
-		float rotation[2]{ transformComponent.GetRotation().x, transformComponent.GetRotation().y };
+		float* translation[3]{ &transformComponent.GetTranslation().x, &transformComponent.GetTranslation().y, &transformComponent.GetTranslation().z };
+		float* scale[2]{ &transformComponent.GetScale().x, &transformComponent.GetScale().y };
+		float* rotation[1]{ &transformComponent.GetRotation() };
 
 		if (ImGui::TreeNode("Transform"))
 		{
+			if (ImGui::Button("X", ImVec2(25, 25)))
+			{
+				Fuse::EntitySystem::OnComponentRemoved<Fuse::Transform>(*Editor::SceneHierarchy::GetSelectedEntity());
+			}
+
 			ImGui::Text("Translation");
 			ImGui::SameLine();
-			ImGui::DragFloat2("##Translation", translation);
+			ImGui::DragFloat3("##Translation", *translation, 1.0f);
 
 			ImGui::Text("Scale");
 			ImGui::SameLine();
-			ImGui::DragFloat2("##Scale", scale);
+			ImGui::DragFloat2("##Scale", *scale, 1.0f);
 
 			ImGui::Text("Rotation");
 			ImGui::SameLine();
-			ImGui::DragFloat("##Rotation", rotation);
+			ImGui::DragFloat("##Rotation", *rotation, 1.0f);
+
+			transformComponent.RecalculateMatrix();
 
 			ImGui::TreePop();
 		}
@@ -136,6 +143,7 @@ void Editor::Inspector::ShowComponents()
 			{
 				Fuse::EntitySystem::OnComponentRemoved<Fuse::SpriteRenderer2D>(*Editor::SceneHierarchy::GetSelectedEntity());
 			}
+
 			ImGui::SameLine();
 			ImGui::Checkbox("Active", &spriteComponent.GetActiveState());
 			ImGui::ImageButton((ImTextureID)spriteComponent.GetTexture(), ImVec2(25, 25));
