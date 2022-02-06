@@ -2,97 +2,19 @@
 
 Fuse::ShaderProgram::ShaderProgram()
 {
-	m_FragmentShader = 0;
-	m_VertexShader = 0;
-	m_ComputeShader = 0;
 	m_ShaderProgramID = 0;
-
-	m_VertexShaderCode = "";
-	m_FragmentShaderCode = "";
-	m_ComputeShaderCode = "";
 }
 Fuse::ShaderProgram::~ShaderProgram() {}
 
-void Fuse::ShaderProgram::LoadShader(const char* shaderName, GLuint shaderType, const char* shaderPath)
+void Fuse::ShaderProgram::CreateShader(Fuse::Shader& shader)
 {
-	std::ifstream shaderFile;
+	shader.SetShader(glCreateShader(shader.GetShaderType()));
+	glShaderSource(shader.GetShader(), 1, &shader.m_ShaderCode, NULL);
+	glCompileShader(shader.GetShader());
 
-	try
+	if (CheckShaderCompilation(shader.GetShader()))
 	{
-		std::stringstream shaderStream;
-
-		shaderFile.open(shaderPath);
-		shaderStream << shaderFile.rdbuf();
-		
-		if (shaderType == GL_VERTEX_SHADER)
-		{
-			m_VertexCode = shaderStream.str();
-			m_VertexShaderCode = m_VertexCode.c_str();
-
-			shaderFile.close();
-			CreateShader(shaderName, shaderType);
-		}
-		else if (shaderType == GL_FRAGMENT_SHADER)
-		{
-			m_FragmentCode = shaderStream.str();
-			m_FragmentShaderCode = m_FragmentCode.c_str();
-
-			shaderFile.close();
-			CreateShader(shaderName, shaderType);
-		}
-		else
-		{
-			std::string name(shaderName);
-			std::string message = "Shader type: " + name + " Shader unsupported by Shader Program";
-			Editor::Console::PrintToConsole(Editor::MessageType::ERROR, message.c_str());
-		}
-	}
-	catch (std::ofstream::failure e)
-	{
-		std::cout << "ERROR: SHADER FILE NOT SUCCESSFULLY READ" << std::endl;
-	}
-}
-
-void Fuse::ShaderProgram::CreateShader(const char* shaderName, GLuint shaderType)
-{
-	switch (shaderType)
-	{
-		case GL_VERTEX_SHADER:
-		{
-			m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
-			glShaderSource(m_VertexShader, 1, &m_VertexShaderCode, NULL);
-			glCompileShader(m_VertexShader);
-
-			if (CheckShaderCompilation(m_VertexShader, shaderName))
-			{
-				m_Shaders.emplace_back(m_VertexShader);
-			}
-		}
-			break;	
-		case GL_FRAGMENT_SHADER:
-		{
-			m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-			glShaderSource(m_FragmentShader, 1, &m_FragmentShaderCode, NULL);
-			glCompileShader(m_FragmentShader);
-
-			if (CheckShaderCompilation(m_FragmentShader, shaderName))
-			{
-				m_Shaders.emplace_back(m_FragmentShader);
-			}
-		}
-			break;
-		case GL_COMPUTE_SHADER:
-		{
-			m_ComputeShader = glCreateShader(GL_COMPUTE_SHADER);
-			glShaderSource(m_ComputeShader, 1, &m_ComputeShaderCode, NULL);
-			glCompileShader(m_ComputeShader);
-
-			if (CheckShaderCompilation(m_ComputeShader, shaderName))
-			{
-				m_Shaders.emplace_back(m_ComputeShader);
-			}
-		}
-			break;
+		m_Shaders.push_back(shader);
 	}
 }
 
@@ -102,7 +24,7 @@ void Fuse::ShaderProgram::Link()
 
 	for (auto shader : m_Shaders)
 	{
-		glAttachShader(m_ShaderProgramID, shader);
+		glAttachShader(m_ShaderProgramID, shader.GetShader());
 	}
 	
 	glLinkProgram(m_ShaderProgramID);
@@ -111,7 +33,7 @@ void Fuse::ShaderProgram::Link()
 	{
 		for (auto shader : m_Shaders)
 		{
-			glDeleteShader(shader);
+			glDeleteShader(shader.GetShader());
 		}
 	}
 }
@@ -121,7 +43,7 @@ void Fuse::ShaderProgram::Use()
 	glUseProgram(m_ShaderProgramID);
 }
 
-bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shaderName)
+bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader)
 {
 	int success;
 	char infoLog[512];
@@ -131,18 +53,13 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shad
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
 
-		std::string message = shaderName;
-		message.append(infoLog);
-
-		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, message.c_str());
+		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Error Compiling Shader");
+		std::cout << infoLog << std::endl;
 		return false;
 	}
 	else
 	{
-		std::string message = "Shader Compilation Successful: ";
-		message.append(shaderName);
-
-		Editor::Console::PrintToConsole(Editor::MessageType::MESSAGE, message.c_str());
+		Editor::Console::PrintToConsole(Editor::MessageType::MESSAGE, "Shader Compiled");
 		return true;
 	}
 }
@@ -157,6 +74,7 @@ bool Fuse::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Shader Link Failed");
+		std::cout << infoLog << std::endl;
 		return false;
 	}
 	else
@@ -195,14 +113,6 @@ void Fuse::ShaderProgram::SetUniformMatrix4(const char* uniformName, const glm::
 
 void Fuse::ShaderProgram::ClearProgram()
 {
-	m_FragmentShader = 0;
-	m_VertexShader = 0;
-	m_ComputeShader = 0;
 	m_ShaderProgramID = 0;
-
-	m_VertexShaderCode = "";
-	m_FragmentShaderCode = "";
-	m_ComputeShaderCode = "";
-
 	m_Shaders.clear();
 }

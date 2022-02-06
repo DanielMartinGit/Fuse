@@ -22,8 +22,8 @@ namespace Fuse
 
 				Fuse::Renderer2D::InitialiseRenderer(*m_CameraController.GetCamera());
 
-				Fuse::ResourceManager::LoadShader("Vertex", GL_VERTEX_SHADER, "Resources/Shaders/Base/VertexShader.vert");
-				Fuse::ResourceManager::LoadShader("Fragment", GL_FRAGMENT_SHADER, "Resources/Shaders/Base/FragmentShader.frag");
+				Fuse::ResourceManager::CreateShader("Resources/Shaders/Vertex.shader", GL_VERTEX_SHADER);
+				Fuse::ResourceManager::CreateShader("Resources/Shaders/Fragment.shader", GL_FRAGMENT_SHADER);
 				Fuse::ResourceManager::LinkShaders();
 			}
 

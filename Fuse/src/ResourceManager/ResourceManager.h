@@ -12,7 +12,8 @@ namespace Fuse
 
 		public:
 			static uint32_t& LoadTexture(const char* path);
-			static void LoadShader(const char* shaderName, GLuint shaderType, const char* shaderPath);
+
+			static void CreateShader(const char* path, GLuint shaderType);
 			static void LinkShaders() { m_ShaderProgram.Link(); }
 
 		public:

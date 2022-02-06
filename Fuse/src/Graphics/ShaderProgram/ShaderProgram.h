@@ -12,6 +12,7 @@
 #include "../../../Vendor/GLAD/glad.h"
 #include "../../../Vendor/GLM/gtc/type_ptr.hpp"
 #include "../../../../Editor/src/Panels/Console/Console.h"
+#include "../Shader/Shader.h"
 
 namespace Fuse
 {
@@ -22,15 +23,15 @@ namespace Fuse
 			~ShaderProgram();
 
 		public:
-			void LoadShader(const char* shaderName, GLuint shaderType, const char* path);
-			void CreateShader(const char* shaderName, GLuint shaderType);
+			void CreateShader(Fuse::Shader& shader);
+
 			void Link();
 			void Use();
 
 			void ClearProgram();
 
 		public:
-			bool CheckShaderCompilation(GLuint shader, const char* shaderName);
+			bool CheckShaderCompilation(GLuint shader);
 			bool CheckShaderLink(GLuint shaderProgram);
 
 		public:
@@ -45,18 +46,8 @@ namespace Fuse
 			size_t GetShadersLoaded() { return m_Shaders.size(); }
 
 		private:
-			std::vector<uint32_t> m_Shaders;
+			std::vector<Fuse::Shader> m_Shaders;
 
-			std::string m_VertexCode;
-			std::string m_FragmentCode;
-
-			uint32_t m_VertexShader;
-			uint32_t m_ComputeShader;
-			uint32_t m_FragmentShader;
 			uint32_t m_ShaderProgramID;
-
-			const char* m_VertexShaderCode;
-			const char* m_FragmentShaderCode;
-			const char* m_ComputeShaderCode;
 	};
 }

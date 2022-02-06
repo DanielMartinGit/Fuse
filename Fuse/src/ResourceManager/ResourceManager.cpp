@@ -64,7 +64,8 @@ uint32_t& Fuse::ResourceManager::LoadTexture(const char* path)
 	return textureID;
 }
 
-void Fuse::ResourceManager::LoadShader(const char* shaderName, GLuint shaderType, const char* shaderPath)
+void Fuse::ResourceManager::CreateShader(const char* path, GLuint shaderType)
 {
-	m_ShaderProgram.LoadShader(shaderName, shaderType, shaderPath);
+	Fuse::Shader shader(path, shaderType);
+	m_ShaderProgram.CreateShader(shader);
 }

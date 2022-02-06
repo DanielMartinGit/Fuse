@@ -1596,6 +1596,7 @@
     <ClInclude Include="src\JSOn\JsonHandler.h">
       <Filter>src\Yaml</Filter>
     </ClInclude>
+    <ClInclude Include="src\Graphics\Shader\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c">
