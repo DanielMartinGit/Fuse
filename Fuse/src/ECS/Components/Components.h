@@ -55,8 +55,8 @@ namespace Fuse
 			void RecalculateMatrix()
 			{
 				m_Transform = glm::scale(m_Transform, m_Scale) *
-				glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation), glm::vec3(0, 0, 1)) *
-				glm::translate(glm::mat4(1.0f), m_Translation);
+				glm::rotate(m_Transform, glm::radians(m_Rotation), glm::vec3(0, 0, 1)) *
+				glm::translate(m_Transform, m_Translation);
 			}
 
 		public:

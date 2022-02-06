@@ -7,7 +7,7 @@ Editor::Console::Console()
 	m_ShowMessages = true;
 	m_ShowActions = true;
 
-	m_AutoScroll = true;
+	m_AutoScroll = false;
 	ClearConsole();
 }
 Editor::Console::~Console() {}

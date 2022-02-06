@@ -23,10 +23,15 @@ namespace Fuse
 			static void SaveProject();
 
 		private:
+			static void SaveScene();
+
+		private:
 			struct m_LoadedProject
 			{
 				std::string m_ProjectName = "";
 				std::string m_ProjectPath = "";
+
+				std::ofstream m_ProjectFile;
 				std::ofstream m_SceneFile;
 
 				nlohmann::json m_SceneData;

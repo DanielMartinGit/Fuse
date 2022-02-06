@@ -16,6 +16,7 @@ bool Fuse::ProjectManager::CreateNewProject(std::string projectName, std::string
 		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Build");
 		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Library");
 		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Project Settings");
+		m_Project.m_ProjectFile = std::ofstream((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Project Settings/" + (std::string)projectName + ".fuse");
 
 		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Created Project!");
 
@@ -43,6 +44,26 @@ void Fuse::ProjectManager::LoadProject(const char* path)
 
 void Fuse::ProjectManager::SaveProject()
 {
+	if (m_Project.m_SceneFile.is_open())
+	{
+		SaveScene();
+	}
+	else
+	{
+		m_Project.m_SceneFile.open(m_Project.m_ProjectPath + "/" + (std::string)m_Project.m_ProjectName + ".scene");
+		SaveScene();
+	}
+}
+
+void Fuse::ProjectManager::UnloadLoadedProject()
+{
+	m_Project.m_ProjectName = "";
+	m_Project.m_ProjectPath = "";
+	m_Project.m_SceneFile.close();
+}
+
+void Fuse::ProjectManager::SaveScene()
+{
 	auto view = Fuse::EntitySystem::GetWorld()->view<Fuse::Entity>();
 
 	for (auto entity : view)
@@ -53,11 +74,6 @@ void Fuse::ProjectManager::SaveProject()
 	std::string message = "Scene Saved with ";
 	message.append(std::to_string(view.size()) + " entities");
 	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, message.c_str());
-}
 
-void Fuse::ProjectManager::UnloadLoadedProject()
-{
-	m_Project.m_ProjectName = "";
-	m_Project.m_ProjectPath = "";
 	m_Project.m_SceneFile.close();
 }

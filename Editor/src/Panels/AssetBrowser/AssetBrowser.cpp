@@ -61,10 +61,18 @@ void Editor::AssetBrowser::OnImGuiRender()
 						m_CurrentDirectory /= directoryEntry.path().filename();
 					}
 				}
-				else
+				else if(directoryEntry.is_regular_file() && std::filesystem::path(directoryEntry).extension() == ".png")
 				{
-					if (ImGui::ImageButton((ImTextureID)m_FileIcon, ImVec2(m_ThumbnailSize, m_ThumbnailSize)))
+					if (ImGui::ImageButton((ImTextureID)m_PngIcon, ImVec2(m_ThumbnailSize, m_ThumbnailSize)))
 					{
+
+					}
+				}
+				else if (directoryEntry.is_regular_file() && std::filesystem::path(directoryEntry).extension() == ".scene")
+				{
+					if (ImGui::ImageButton((ImTextureID)m_SceneIcon, ImVec2(m_ThumbnailSize, m_ThumbnailSize)))
+					{
+						
 					}
 				}
 

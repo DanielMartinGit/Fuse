@@ -10,6 +10,7 @@ namespace Editor
 {
 	class AssetBrowser : public Fuse::Panel
 	{
+		// TODO - Rewrite the iterator and rendering code for the current opened project
 		public:
 			AssetBrowser();
 			~AssetBrowser();
@@ -21,6 +22,11 @@ namespace Editor
 			{
 				m_FolderIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/FolderIcon.png");
 				m_FileIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/FileIcon.png");
+				m_SceneIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/SceneIcon.png");
+				m_TxtIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/TXTIcon.png");
+				m_ScriptIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/ScriptIcon.png");
+				m_PngIcon = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/PNGIcon.png");
+
 				m_RefreshButton = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/RotateButton.png");
 				m_BackButton = Fuse::ResourceManager::LoadTexture("Resources/Textures/Icons/BackButton.png");
 			}
@@ -53,6 +59,11 @@ namespace Editor
 		private:
 			inline static uint32_t m_FileIcon;
 			inline static uint32_t m_FolderIcon;
+			inline static uint32_t m_SceneIcon;
+			inline static uint32_t m_ScriptIcon;
+			inline static uint32_t m_TxtIcon;
+			inline static uint32_t m_PngIcon;
+
 			inline static uint32_t m_RefreshButton;
 			inline static uint32_t m_BackButton;
 	};

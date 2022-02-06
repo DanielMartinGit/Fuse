@@ -117,15 +117,15 @@ void Editor::Inspector::ShowComponents()
 
 			ImGui::Text("Translation");
 			ImGui::SameLine();
-			ImGui::DragFloat3("##Translation", *translation, 1.0f);
+			ImGui::DragFloat3("##Translation", *translation, 0.5f);
 
 			ImGui::Text("Scale");
 			ImGui::SameLine();
-			ImGui::DragFloat2("##Scale", *scale, 1.0f);
+			ImGui::DragFloat2("##Scale", *scale, 0.5f);
 
 			ImGui::Text("Rotation");
 			ImGui::SameLine();
-			ImGui::DragFloat("##Rotation", *rotation, 1.0f);
+			ImGui::DragFloat("##Rotation", *rotation, 0.5f);
 
 			transformComponent.RecalculateMatrix();
 

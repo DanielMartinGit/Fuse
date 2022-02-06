@@ -6,6 +6,7 @@ Fuse::SceneManager::~SceneManager() {}
 void Fuse::SceneManager::OnSceneCreated(const char* sceneName)
 {
 	OnSceneUnloaded();
+
 	m_CurrentScene = new Fuse::Scene(sceneName);
 	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Created");
 	OnSceneLoaded(*m_CurrentScene);
