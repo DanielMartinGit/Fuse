@@ -2,6 +2,7 @@
 #include "../Console/Console.h"
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
 #include "../../../../Fuse/src/ResourceManager/ResourceManager.h"
+#include "../../../../Fuse/src/SceneManager/SceneManager.h"
 
 #include <filesystem>
 #include <string>

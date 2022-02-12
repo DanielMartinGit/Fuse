@@ -35,11 +35,32 @@ namespace Fuse
 			bool CheckShaderLink(GLuint shaderProgram);
 
 		public:
-			void SetBool(const std::string& name, bool value) const;
-			void SetInt(const std::string& name, int value) const;
-			void SetFloat(const std::string& name, float value) const;
-			void SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value);
-			void SetUniformMatrix4(const char* uniformName, const glm::mat4& matrix);
+			void SetBool(const std::string& name, bool value) const
+			{
+				glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
+			}
+
+			void SetInt(const std::string& name, int value) const
+			{
+				glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
+			}
+
+			void SetFloat(const std::string& name, float value) const
+			{
+				glUniform1f(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
+			}
+
+			void SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value)
+			{
+				GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
+				glUniformMatrix4fv(location, 1, GL_FALSE, value);
+			}
+
+			void SetUniformMatrix4(const char* uniformName, const glm::mat4& matrix)
+			{
+				GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
+				glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+			}
 
 		public:
 			GLuint GetActiveShaderProgram() { return m_ShaderProgramID; }
@@ -47,7 +68,6 @@ namespace Fuse
 
 		private:
 			std::vector<Fuse::Shader> m_Shaders;
-
 			uint32_t m_ShaderProgramID;
 	};
 }

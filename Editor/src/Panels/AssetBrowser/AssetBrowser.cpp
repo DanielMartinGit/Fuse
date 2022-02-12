@@ -70,9 +70,13 @@ void Editor::AssetBrowser::OnImGuiRender()
 				}
 				else if (directoryEntry.is_regular_file() && std::filesystem::path(directoryEntry).extension() == ".scene")
 				{
+					auto relativePath = std::filesystem::relative(directoryEntry.path(), m_AssetsDirectory);
+					std::string filename = relativePath.filename().string();
+
 					if (ImGui::ImageButton((ImTextureID)m_SceneIcon, ImVec2(m_ThumbnailSize, m_ThumbnailSize)))
 					{
-						
+						const char* sceneName = filename.c_str();
+						Fuse::SceneManager::OnSceneCreated(sceneName);
 					}
 				}
 

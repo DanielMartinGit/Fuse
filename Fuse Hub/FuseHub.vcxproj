@@ -84,9 +84,6 @@
     <ProjectReference Include="..\Fuse\Fuse.vcxproj">
       <Project>{F872857C-E4A9-860D-8D96-6C1079AC020F}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Editor\Editor.vcxproj">
-      <Project>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

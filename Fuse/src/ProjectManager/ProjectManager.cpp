@@ -27,7 +27,6 @@ bool Fuse::ProjectManager::CreateNewProject(std::string projectName, std::string
 		m_Project.m_SceneFile = std::ofstream(projectPath + "/" + (std::string)projectName + ".scene");
 
 		Editor::AssetBrowser::SetProjectPath(m_Project.m_ProjectPath);
-		Fuse::SceneManager::OnSceneCreated(projectName.c_str());		
 
 		return true;
 	}

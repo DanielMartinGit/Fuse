@@ -7,6 +7,9 @@ void Fuse::SceneManager::OnSceneCreated(const char* sceneName)
 {
 	OnSceneUnloaded();
 
+	if (m_CurrentScene != nullptr)
+		delete m_CurrentScene;
+
 	m_CurrentScene = new Fuse::Scene(sceneName);
 	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Created");
 	OnSceneLoaded(*m_CurrentScene);
@@ -52,7 +55,9 @@ void Fuse::SceneManager::OnSceneUnloaded()
 	if (m_CurrentScene != nullptr)
 	{
 		m_CurrentScene->OnSceneUnloaded();
+
 		m_CurrentScene = nullptr;
+		delete m_CurrentScene;
 
 		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Scene Unloaded");
 	}

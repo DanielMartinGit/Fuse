@@ -84,33 +84,6 @@ bool Fuse::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	}
 }
 
-void Fuse::ShaderProgram::SetBool(const std::string& name, bool value) const
-{
-	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
-}
-
-void Fuse::ShaderProgram::SetInt(const std::string& name, int value) const
-{
-	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
-}
-
-void Fuse::ShaderProgram::SetFloat(const std::string& name, float value) const
-{
-	glUniform1f(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
-}
-
-void Fuse::ShaderProgram::SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value)
-{
-	GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
-	glUniformMatrix4fv(location , 1, GL_FALSE, value);
-}
-
-void Fuse::ShaderProgram::SetUniformMatrix4(const char* uniformName, const glm::mat4& matrix)
-{
-	GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
-	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
-}
-
 void Fuse::ShaderProgram::ClearProgram()
 {
 	m_ShaderProgramID = 0;
