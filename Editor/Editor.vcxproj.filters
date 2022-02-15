@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="EditorWindow">
-      <UniqueIdentifier>{04B9BF9D-F01B-4F42-99A1-87F885E31AC5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Menus">
       <UniqueIdentifier>{ADA4A90D-19B9-D1BE-E23A-751E4E0ECEEF}</UniqueIdentifier>
     </Filter>
@@ -40,13 +37,16 @@
     <Filter Include="Panels\SceneViewport">
       <UniqueIdentifier>{C539B8F0-B1C8-41BA-5AE7-55B546555260}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Window">
+    <Filter Include="Editor">
+      <UniqueIdentifier>{04B9BF9D-F01B-4F42-99A1-87F885E31AC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EditorWindow">
       <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\EditorWindow\Editor.h">
-      <Filter>EditorWindow</Filter>
+      <Filter>Editor</Filter>
     </ClInclude>
     <ClInclude Include="src\Menus\NewProject\NewProject.h">
       <Filter>Menus\NewProject</Filter>
@@ -78,13 +78,13 @@
     <ClInclude Include="src\Panels\SceneViewport\SceneViewport.h">
       <Filter>Panels\SceneViewport</Filter>
     </ClInclude>
-    <ClInclude Include="src\Window\Window.h">
-      <Filter>Window</Filter>
+    <ClInclude Include="src\Window\EditorWindow.h">
+      <Filter>EditorWindow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EditorWindow\Editor.cpp">
-      <Filter>EditorWindow</Filter>
+      <Filter>Editor</Filter>
     </ClCompile>
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Panels\AssetBrowser\AssetBrowser.cpp">
@@ -114,8 +114,8 @@
     <ClCompile Include="src\Panels\SceneViewport\SceneViewport.cpp">
       <Filter>Panels\SceneViewport</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window\Window.cpp">
-      <Filter>Window</Filter>
+    <ClCompile Include="src\Window\EditorWindow.cpp">
+      <Filter>EditorWindow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

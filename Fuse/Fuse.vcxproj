@@ -90,6 +90,8 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Graphics\Shader\Shader.h" />
+    <ClInclude Include="src\Initialisation\Initialisation.h" />
+    <ClInclude Include="src\Window\BaseWindow.h" />
     <ClInclude Include="Vendor\Entt\entt.hpp" />
     <ClInclude Include="Vendor\GLAD\KHR\khrplatform.h" />
     <ClInclude Include="Vendor\GLAD\glad.h" />

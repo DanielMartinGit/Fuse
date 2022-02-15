@@ -2,7 +2,7 @@
 #include "../../../Fuse/src/Panels/PanelManager/PanelManager.h"
 #include "../../../Fuse/src/Time/Time.h"
 
-namespace Editor
+namespace EditorUI
 {
 	class EditorWindow
 	{
