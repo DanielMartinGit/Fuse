@@ -89,9 +89,6 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Graphics\Shader\Shader.h" />
-    <ClInclude Include="src\Initialisation\Initialisation.h" />
-    <ClInclude Include="src\Window\BaseWindow.h" />
     <ClInclude Include="Vendor\Entt\entt.hpp" />
     <ClInclude Include="Vendor\GLAD\KHR\khrplatform.h" />
     <ClInclude Include="Vendor\GLAD\glad.h" />
@@ -538,6 +535,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="Vendor\ImGuizmo\ImSequencer.h" />
     <ClInclude Include="Vendor\ImGuizmo\ImZoomSlider.h" />
     <ClInclude Include="Vendor\JSON\json.hpp" />
+    <ClInclude Include="Vendor\PFD\portable-file-dialogs.h" />
     <ClInclude Include="Vendor\STB\stb_c_lexer.h" />
     <ClInclude Include="Vendor\STB\stb_connected_components.h" />
     <ClInclude Include="Vendor\STB\stb_divide.h" />
@@ -557,16 +555,19 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="Vendor\STB\stb_tilemap_editor.h" />
     <ClInclude Include="Vendor\STB\stb_truetype.h" />
     <ClInclude Include="Vendor\STB\stb_voxel_render.h" />
-    <ClInclude Include="src\Time\Time.h" />
     <ClInclude Include="src\ECS\Components\Components.h" />
     <ClInclude Include="src\ECS\EntitySystem\EntitySystem.h" />
     <ClInclude Include="src\ECS\Systems\RenderingSystem.h" />
     <ClInclude Include="src\EditorCamera\EditorCamera.h" />
     <ClInclude Include="src\EditorCamera\EditorCameraController\EditorCameraController.h" />
+    <ClInclude Include="src\FileDialogs\FileDialogs.h" />
     <ClInclude Include="src\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="src\Graphics\Rendering\Renderer2D\Renderer2D.h" />
+    <ClInclude Include="src\Graphics\Shader\Shader.h" />
     <ClInclude Include="src\Graphics\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="src\Initialisation\Initialisation.h" />
     <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\JSON\JsonHandler.h" />
     <ClInclude Include="src\Layers\BaseLayer\BaseLayer.h" />
     <ClInclude Include="src\Layers\InputLayer\InputLayer.h" />
     <ClInclude Include="src\Panels\BasePanel\Panel.h" />
@@ -576,8 +577,9 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\SceneManager\SceneManager.h" />
     <ClInclude Include="src\Theme\ImGuiTheme.h" />
+    <ClInclude Include="src\Time\Time.h" />
     <ClInclude Include="src\Timer\Timer.h" />
-    <ClInclude Include="src\JSOn\JsonHandler.h" />
+    <ClInclude Include="src\Window\BaseWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c" />
@@ -604,6 +606,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClCompile Include="src\ProjectManager\ProjectManager.cpp" />
     <ClCompile Include="src\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="src\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="src\Window\BaseWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\Libraries\Fuse\Fuse.lib" />

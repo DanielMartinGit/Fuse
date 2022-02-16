@@ -85,7 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\EditorWindow\Editor.h" />
+    <ClInclude Include="src\Editor\Editor.h" />
     <ClInclude Include="src\Menus\NewProject\NewProject.h" />
     <ClInclude Include="src\Panels\AssetBrowser\AssetBrowser.h" />
     <ClInclude Include="src\Panels\Console\Console.h" />
@@ -99,7 +99,7 @@
     <ClInclude Include="src\Window\EditorWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\EditorWindow\Editor.cpp" />
+    <ClCompile Include="src\Editor\Editor.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Panels\AssetBrowser\AssetBrowser.cpp" />
     <ClCompile Include="src\Panels\Console\Console.cpp" />

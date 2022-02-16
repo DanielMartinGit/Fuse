@@ -4,7 +4,7 @@
 
 namespace Editor
 {
-	enum class MessageType { MESSAGE, WARNING, ERROR, ACTION };
+	enum class MessageType { MESSAGE, WARNING, ISSUE, ACTION };
 
 	class Console : public Fuse::Panel
 	{

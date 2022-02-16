@@ -34,7 +34,7 @@ namespace Menus
 						m_IsActive = false;
 					}
 					else
-						Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Invalid project path or name");
+						Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Invalid project path or name");
 				}
 
 				ImGui::End();

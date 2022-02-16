@@ -11,7 +11,6 @@
 
 #include "../../../Vendor/GLAD/glad.h"
 #include "../../../Vendor/GLM/gtc/type_ptr.hpp"
-#include "../../../../Editor/src/Panels/Console/Console.h"
 #include "../Shader/Shader.h"
 
 namespace Fuse

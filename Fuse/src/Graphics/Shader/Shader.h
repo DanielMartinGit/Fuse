@@ -47,7 +47,7 @@ namespace Fuse
 				}
 				catch (std::ofstream::failure e)
 				{
-					Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Cannot find shader file!");
+					Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Cannot find shader file!");
 				}
 			}
 
@@ -58,6 +58,7 @@ namespace Fuse
 			void SetShaderCode(const char* shaderCode) { m_ShaderCode = shaderCode; }
 			void SetShaderType(GLuint shaderType) { m_ShaderType = shaderType; }
 			void SetShader(uint32_t shader) { m_Shader = shader; }
+		
 		public:
 			std::string m_ShaderString;
 			uint32_t m_Shader;

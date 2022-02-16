@@ -111,7 +111,7 @@ project "Editor"
 		buildoptions "/MD"
 
 project "FuseHub"
-	location "Fuse Hub"
+	location "FuseHub"
 	kind "ConsoleApp"
 	language "C++"
 
@@ -126,8 +126,7 @@ project "FuseHub"
 
 	links
 	{
-		"Fuse",
-		"Editor"
+		"Fuse"
 	}
 
 	filter "system:windows"

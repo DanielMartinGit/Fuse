@@ -75,7 +75,7 @@ namespace Fuse
 				}
 				else
 				{
-					Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Entity already contains this component");
+					Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Entity already contains this component");
 				}
 			}
 
@@ -91,7 +91,7 @@ namespace Fuse
 				}
 				else
 				{
-					Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Entity didn't contain component");
+					Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Entity didn't contain component");
 				}
 			}
 

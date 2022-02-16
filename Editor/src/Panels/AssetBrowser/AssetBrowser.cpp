@@ -97,7 +97,7 @@ void Editor::AssetBrowser::OnImGuiRender()
 		}
 		catch (std::filesystem::filesystem_error& error)
 		{
-			Editor::Console::PrintToConsole(Editor::MessageType::ERROR, error.what());
+			Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, error.what());
 		}
 	}
 

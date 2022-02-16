@@ -11,10 +11,12 @@ void EditorWindow::EditorWindow::Initialise()
 {
 	InitialiseWindow(1920, 1080, "Fuse Editor");
 
-	m_Editor = new EditorUI::EditorWindow();
+	m_Editor = new EditorUI::EditorApplication();
 	m_Editor->SetupScene();
 
 	MainLoop();
+
+	delete m_Editor;
 }
 
 void EditorWindow::EditorWindow::ProcessInput()
@@ -27,22 +29,17 @@ void EditorWindow::EditorWindow::ProcessInput()
 	m_Editor->ProcessInput(m_Window);
 }
 
-void EditorWindow::EditorWindow::Update(float deltaTime)
+void EditorWindow::EditorWindow::Update(double deltaTime)
 {
 	m_Editor->CalculateFPSFrametime();
 }
 
 void EditorWindow::EditorWindow::Render()
 {
-	// Create a new frame for ImGui
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
+	BeginFrame();
 
 	// Render the Editor
-	m_Editor->RenderEditor();
-
-	// Render ImGui
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	m_Editor->Render();
+	
+	EndFrame();
 }

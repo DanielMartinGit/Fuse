@@ -1,7 +1,6 @@
 #pragma once
-
-#include "../EditorWindow/Editor.h"
 #include "../../../Fuse/src/Window/BaseWindow.h"
+#include "../Editor/Editor.h"
 
 namespace EditorWindow
 {
@@ -14,10 +13,10 @@ namespace EditorWindow
 		public:
 			void Initialise() override;
 			void ProcessInput() override;
-			void Update(float deltaTime) override;
+			void Update(double deltaTime) override;
 			void Render() override;
 
 		private:
-			EditorUI::EditorWindow* m_Editor;
+			EditorUI::EditorApplication* m_Editor;
 	};
 }

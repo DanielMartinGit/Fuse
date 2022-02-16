@@ -1,16 +1,15 @@
-#include "EditorWindow/Editor.h"
+#include "../../FuseHub/src/Window/FuseHubWindow.h"
 #include "Window/EditorWindow.h"
-#include "../../Fuse Hub/src/Window/FuseHubWindow.h"
 
 int main()
 {
 	srand((unsigned int)time(NULL));
 
-	FuseHub::FuseHubWindow* FuseHubWindow = new FuseHub::FuseHubWindow();
-	EditorWindow::EditorWindow* EditorWindow = new EditorWindow::EditorWindow();
-
-	FuseHubWindow->Initialise();
-	EditorWindow->Initialise();
+	//FuseHub::HubWindow* FuseHubWindow = new FuseHub::HubWindow();
+	//FuseHubWindow->Initialise();
+	
+	EditorWindow::EditorWindow* editorWindow = new EditorWindow::EditorWindow();
+	editorWindow->Initialise();
 
 	return 0;
 }

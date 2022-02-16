@@ -53,7 +53,7 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader)
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
 
-		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Error Compiling Shader");
+		Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Error Compiling Shader");
 		std::cout << infoLog << std::endl;
 		return false;
 	}
@@ -73,7 +73,7 @@ bool Fuse::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	if (!success)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		Editor::Console::PrintToConsole(Editor::MessageType::ERROR, "Shader Link Failed");
+		Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Shader Link Failed");
 		std::cout << infoLog << std::endl;
 		return false;
 	}

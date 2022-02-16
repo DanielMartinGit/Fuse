@@ -1,6 +1,6 @@
 #pragma once
-#include "../../Vendor/GLFW/glfw3.h"
 #include "../../Vendor/GLAD/glad.h"
+#include "../../Vendor/GLFW/glfw3.h"
 #include "../../Vendor/ImGui/imgui_impl_glfw.h"
 #include "../../Vendor/ImGui/imgui_impl_opengl3.h"
 

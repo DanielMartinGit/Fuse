@@ -24,7 +24,7 @@ void Editor::Console::PrintToConsole(MessageType messageType, const char* messag
 			m_ActionCount++;
 		}
 			break;
-		case MessageType::ERROR:
+		case MessageType::ISSUE:
 		{
 			newMessage = "[ERROR] " + std::string(message) + "\n";
 			m_ErrorCount++;

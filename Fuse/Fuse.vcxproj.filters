@@ -52,14 +52,14 @@
     <Filter Include="Vendor\Libraries\GLFW">
       <UniqueIdentifier>{5E716C3C-CADD-2737-93D1-BF94FFFC499F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vendor\PFD">
+      <UniqueIdentifier>{7C147327-68CC-B474-D1D3-8DD0BDAA4F65}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Vendor\STB">
       <UniqueIdentifier>{0B237327-F7DA-B474-60E2-8DD04CB94F65}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\DeltaTime">
-      <UniqueIdentifier>{B51D11E8-21DE-8C1E-EA18-D69B5698D1FA}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\ECS">
       <UniqueIdentifier>{F76D2FA9-634D-AE44-6C65-391BD8C314A6}</UniqueIdentifier>
@@ -79,6 +79,9 @@
     <Filter Include="src\EditorCamera\EditorCameraController">
       <UniqueIdentifier>{AF53B815-1BE3-7900-24DF-5A1890EDB40C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\FileDialogs">
+      <UniqueIdentifier>{FFEFE9EB-6B7B-57B0-748C-DAA4E096B3B0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Graphics">
       <UniqueIdentifier>{0D564864-F9B8-D708-A23E-10BF8E80A38B}</UniqueIdentifier>
     </Filter>
@@ -91,11 +94,20 @@
     <Filter Include="src\Graphics\Rendering\Renderer2D">
       <UniqueIdentifier>{36EB1B33-A259-71B2-EB42-2CB257F0664E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Graphics\Shader">
+      <UniqueIdentifier>{139541CB-7FF6-1ED9-0864-658B74C45598}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Graphics\ShaderProgram">
       <UniqueIdentifier>{8BE21C72-77F2-C842-E0AB-2D61CCDAB7DB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Initialisation">
+      <UniqueIdentifier>{1D118709-09F5-475F-7255-42B25E5832E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Input">
       <UniqueIdentifier>{EC4823B3-58B3-D729-A1F1-88CF0D9BB57E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\JSON">
+      <UniqueIdentifier>{962E20CF-82FB-7ADA-AB14-69829740B068}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Layers">
       <UniqueIdentifier>{4C4DA51D-3805-E76A-A10C-C0C68DE3815B}</UniqueIdentifier>
@@ -130,11 +142,14 @@
     <Filter Include="src\Theme">
       <UniqueIdentifier>{4FDCE6B3-BB46-9B2A-0485-4CD0702E797F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Time">
+      <UniqueIdentifier>{EB0B26CF-D7D8-80DA-00F2-6E82EC1DB668}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Timer">
       <UniqueIdentifier>{BD89E7B3-29F4-9B2A-7232-4DD0DEDB797F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Yaml">
-      <UniqueIdentifier>{CFA728CF-BB74-83DA-E48D-7182D0B9B868}</UniqueIdentifier>
+    <Filter Include="src\Window">
+      <UniqueIdentifier>{74C3D837-607B-1A85-C982-F3E0B559B575}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1476,6 +1491,9 @@
     <ClInclude Include="Vendor\JSON\json.hpp">
       <Filter>Vendor\JSON</Filter>
     </ClInclude>
+    <ClInclude Include="Vendor\PFD\portable-file-dialogs.h">
+      <Filter>Vendor\PFD</Filter>
+    </ClInclude>
     <ClInclude Include="Vendor\STB\stb_c_lexer.h">
       <Filter>Vendor\STB</Filter>
     </ClInclude>
@@ -1533,9 +1551,6 @@
     <ClInclude Include="Vendor\STB\stb_voxel_render.h">
       <Filter>Vendor\STB</Filter>
     </ClInclude>
-    <ClInclude Include="src\Time\Time.h">
-      <Filter>src\DeltaTime</Filter>
-    </ClInclude>
     <ClInclude Include="src\ECS\Components\Components.h">
       <Filter>src\ECS\Components</Filter>
     </ClInclude>
@@ -1551,17 +1566,29 @@
     <ClInclude Include="src\EditorCamera\EditorCameraController\EditorCameraController.h">
       <Filter>src\EditorCamera\EditorCameraController</Filter>
     </ClInclude>
+    <ClInclude Include="src\FileDialogs\FileDialogs.h">
+      <Filter>src\FileDialogs</Filter>
+    </ClInclude>
     <ClInclude Include="src\Graphics\Framebuffer\Framebuffer.h">
       <Filter>src\Graphics\Framebuffer</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Rendering\Renderer2D\Renderer2D.h">
       <Filter>src\Graphics\Rendering\Renderer2D</Filter>
     </ClInclude>
+    <ClInclude Include="src\Graphics\Shader\Shader.h">
+      <Filter>src\Graphics\Shader</Filter>
+    </ClInclude>
     <ClInclude Include="src\Graphics\ShaderProgram\ShaderProgram.h">
       <Filter>src\Graphics\ShaderProgram</Filter>
     </ClInclude>
+    <ClInclude Include="src\Initialisation\Initialisation.h">
+      <Filter>src\Initialisation</Filter>
+    </ClInclude>
     <ClInclude Include="src\Input\Input.h">
       <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JSON\JsonHandler.h">
+      <Filter>src\JSON</Filter>
     </ClInclude>
     <ClInclude Include="src\Layers\BaseLayer\BaseLayer.h">
       <Filter>src\Layers\BaseLayer</Filter>
@@ -1590,15 +1617,15 @@
     <ClInclude Include="src\Theme\ImGuiTheme.h">
       <Filter>src\Theme</Filter>
     </ClInclude>
+    <ClInclude Include="src\Time\Time.h">
+      <Filter>src\Time</Filter>
+    </ClInclude>
     <ClInclude Include="src\Timer\Timer.h">
       <Filter>src\Timer</Filter>
     </ClInclude>
-    <ClInclude Include="src\JSOn\JsonHandler.h">
-      <Filter>src\Yaml</Filter>
+    <ClInclude Include="src\Window\BaseWindow.h">
+      <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\Shader\Shader.h" />
-    <ClInclude Include="src\Initialisation\Initialisation.h" />
-    <ClInclude Include="src\Window\BaseWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c">
@@ -1672,6 +1699,9 @@
     </ClCompile>
     <ClCompile Include="src\SceneManager\SceneManager.cpp">
       <Filter>src\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window\BaseWindow.cpp">
+      <Filter>src\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

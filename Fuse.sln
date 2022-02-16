@@ -5,7 +5,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fuse", "Fuse\Fuse.vcxproj", "{F872857C-E4A9-860D-8D96-6C1079AC020F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FuseHub", "Fuse Hub\FuseHub.vcxproj", "{B7717129-2351-F0C4-2C69-7B9B98C75626}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FuseHub", "FuseHub\FuseHub.vcxproj", "{B7717129-2351-F0C4-2C69-7B9B98C75626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
