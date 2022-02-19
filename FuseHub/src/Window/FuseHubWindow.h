@@ -4,11 +4,11 @@
 
 namespace FuseHub
 {
-	class HubWindow : Fuse::Window
+	class FuseHubWindow : public Fuse::Window
 	{
 		public:
-			HubWindow();
-			~HubWindow();
+			FuseHubWindow();
+			~FuseHubWindow();
 
 		public:
 			void Initialise() override;

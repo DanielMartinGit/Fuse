@@ -14,6 +14,7 @@ void Fuse::ShaderProgram::CreateShader(Fuse::Shader& shader)
 
 	if (CheckShaderCompilation(shader.GetShader()))
 	{
+		shader.SetIsCompiled(true);
 		m_Shaders.push_back(shader);
 	}
 }
@@ -24,7 +25,8 @@ void Fuse::ShaderProgram::Link()
 
 	for (auto shader : m_Shaders)
 	{
-		glAttachShader(m_ShaderProgramID, shader.GetShader());
+		if(shader.GetIsCompiled())
+			glAttachShader(m_ShaderProgramID, shader.GetShader());
 	}
 	
 	glLinkProgram(m_ShaderProgramID);
@@ -54,6 +56,7 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader)
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
 
 		Editor::Console::PrintToConsole(Editor::MessageType::ISSUE, "Error Compiling Shader");
+		Editor::Console::PrintToConsole(Editor::MessageType::MESSAGE, infoLog);
 		std::cout << infoLog << std::endl;
 		return false;
 	}

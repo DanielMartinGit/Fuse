@@ -54,15 +54,19 @@ namespace Fuse
 			const char* GetShaderCode() { return m_ShaderCode; }
 			GLuint& GetShaderType() { return m_ShaderType; }
 			uint32_t& GetShader() { return m_Shader; }
+			bool& GetIsCompiled() { return m_IsCompiled; }
 
 			void SetShaderCode(const char* shaderCode) { m_ShaderCode = shaderCode; }
 			void SetShaderType(GLuint shaderType) { m_ShaderType = shaderType; }
 			void SetShader(uint32_t shader) { m_Shader = shader; }
-		
+			void SetIsCompiled(bool compiled) { m_IsCompiled = compiled; }
+
 		public:
+			bool m_IsCompiled;
+			const char* m_ShaderCode;
+
 			std::string m_ShaderString;
 			uint32_t m_Shader;
 			GLuint m_ShaderType;
-			const char* m_ShaderCode;
 	};
 }

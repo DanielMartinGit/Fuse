@@ -4,12 +4,20 @@ FuseHub::FuseHubApplication::FuseHubApplication()
 { 
 	m_Option = m_HubOptions::PROJECTS;
 	m_DockSpaceID = 0;
+
+	m_WindowFlags |= ImGuiWindowFlags_MenuBar | 
+	ImGuiWindowFlags_NoResize | 
+	ImGuiWindowFlags_NoMove | 
+	ImGuiWindowFlags_NoCollapse | 
+	ImGuiWindowFlags_NoBringToFrontOnFocus | 
+	ImGuiWindowFlags_NoTitleBar | 
+	ImGuiWindowFlags_NoDocking;
 }
 FuseHub::FuseHubApplication::~FuseHubApplication() {}
 
 void FuseHub::FuseHubApplication::Render()
 {
-	ImGui::Begin("Hub", 0, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoDocking);
+	ImGui::Begin("Hub", 0, m_WindowFlags);
 
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
 	ImVec2 vWindowSize = ImGui::GetMainViewport()->Size;

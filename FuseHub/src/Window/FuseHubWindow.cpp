@@ -1,13 +1,13 @@
 #include "FuseHubWindow.h"
 
-FuseHub::HubWindow::HubWindow()
+FuseHub::FuseHubWindow::FuseHubWindow()
 {
 	m_Window = nullptr;
 	m_FuseHubApplication = nullptr;
 }
-FuseHub::HubWindow::~HubWindow() {}
+FuseHub::FuseHubWindow::~FuseHubWindow() {}
 
-void FuseHub::HubWindow::Initialise()
+void FuseHub::FuseHubWindow::Initialise()
 {
 	InitialiseWindow(1000, 550, "Fuse Hub");
 	m_FuseHubApplication = new FuseHub::FuseHubApplication();
@@ -17,7 +17,7 @@ void FuseHub::HubWindow::Initialise()
 	delete m_FuseHubApplication;
 }
 
-void FuseHub::HubWindow::ProcessInput()
+void FuseHub::FuseHubWindow::ProcessInput()
 {
 	if (glfwGetKey(m_Window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
@@ -25,12 +25,12 @@ void FuseHub::HubWindow::ProcessInput()
 	}
 }
 
-void FuseHub::HubWindow::Update(double deltaTime)
+void FuseHub::FuseHubWindow::Update(double deltaTime)
 {
 
 }
 
-void FuseHub::HubWindow::Render()
+void FuseHub::FuseHubWindow::Render()
 {
 	BeginFrame();
 

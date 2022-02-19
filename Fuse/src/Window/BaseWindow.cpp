@@ -1,6 +1,10 @@
 #include "BaseWindow.h"
 
-Fuse::Window::Window() {}
+Fuse::Window::Window()
+{ 
+	m_Window = nullptr; 
+	m_Initialised = false;
+}
 Fuse::Window::~Window() {}
 
 void Fuse::Window::InitialiseWindow(uint32_t width, uint32_t height, const char* windowTitle)
@@ -13,10 +17,8 @@ void Fuse::Window::InitialiseWindow(uint32_t width, uint32_t height, const char*
 	{
 		m_InitLayer.InitialiseOpenGL();
 		m_Window = m_InitLayer.InitialiseWindow(m_WindowWidth, m_WindowHeight, m_WindowTitle);
-
-		m_InitLayer.InitialiseGLAD();
-
 		InitialiseLayers();
+		m_InitLayer.InitialiseGLAD();
 
 		m_InitLayer.InitialiseImGui(m_Window, m_EditorTheme, m_GLSLVersion);
 
@@ -77,3 +79,8 @@ void Fuse::Window::EndFrame()
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
+
+void Fuse::Window::Initialise() {}
+void Fuse::Window::ProcessInput() {}
+void Fuse::Window::Update(double deltaTime) {}
+void Fuse::Window::Render() {}

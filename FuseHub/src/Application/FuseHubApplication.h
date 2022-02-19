@@ -22,6 +22,8 @@ namespace FuseHub
 			void OnImGuiRenderLoadProject();
 
 		private:
+			ImGuiWindowFlags m_WindowFlags;
+
 			ImGuiID m_DockSpaceID;
 			m_HubOptions m_Option;
 	};

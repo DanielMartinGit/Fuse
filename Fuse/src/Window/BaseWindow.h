@@ -23,10 +23,10 @@ namespace Fuse
 			void EndFrame();
 
 		public:
-			virtual void Initialise() = 0;
-			virtual void ProcessInput() = 0;
-			virtual void Update(double deltaTime) = 0;
-			virtual void Render() = 0;
+			virtual void Initialise();
+			virtual void ProcessInput();
+			virtual void Update(double deltaTime);
+			virtual void Render();
 
 		protected:
 			uint32_t m_WindowWidth = 1920;
@@ -41,7 +41,7 @@ namespace Fuse
 
 			std::vector<Fuse::Layer> m_Layers;
 
-			bool m_Initialised = false;
+			bool m_Initialised;
 
 		protected:
 			GLFWwindow* m_Window;
