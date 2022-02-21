@@ -36,6 +36,8 @@ Run GenerateProject.bat (This will run the premake5.lua file) <br/>
 Build project within Visual Studio <br/>
 Navigate to bin/Debug-platform-architecture/Editor and run the Editor.exe <br/>
 
+# Links
+Trello - https://trello.com/b/YQkfvOEg/fuse <br/>
 
 # Screenshots
 ![image](https://user-images.githubusercontent.com/19360613/154978902-00b3bac9-337c-42a4-8c4d-bd36be696ac6.png)
