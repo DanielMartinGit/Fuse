@@ -104,7 +104,7 @@ void Editor::Inspector::ShowComponents()
 	{
 		auto& transformComponent = Fuse::EntitySystem::GetComponent<Fuse::Transform>(*Editor::SceneHierarchy::GetSelectedEntity());
 		
-		float* translation[3]{ &transformComponent.GetTranslation().x, &transformComponent.GetTranslation().y, &transformComponent.GetTranslation().z };
+		float* translation[2]{ &transformComponent.GetTranslation().x, &transformComponent.GetTranslation().y };
 		float* scale[2]{ &transformComponent.GetScale().x, &transformComponent.GetScale().y };
 		float* rotation[1]{ &transformComponent.GetRotation() };
 
@@ -117,7 +117,7 @@ void Editor::Inspector::ShowComponents()
 
 			ImGui::Text("Translation");
 			ImGui::SameLine();
-			ImGui::DragFloat3("##Translation", *translation, 0.5f);
+			ImGui::DragFloat2("##Translation", *translation, 0.5f);
 
 			ImGui::Text("Scale");
 			ImGui::SameLine();

@@ -34,37 +34,6 @@ void Fuse::Window::InitialiseLayers()
 	m_Layers.emplace_back(m_InputLayer);
 }
 
-void Fuse::Window::MainLoop()
-{
-	while (!glfwWindowShouldClose(m_Window))
-	{
-		// Input
-		ProcessInput();
-
-		// Update
-		Update(Fuse::Time::GetDeltaTime());
-
-		// Render
-		Render();
-
-		// Check events and Swap Buffers
-		glfwSwapBuffers(m_Window);
-		glfwPollEvents();
-	}
-
-	// Destroy the Input Layer
-	m_InputLayer.OnDestroy();
-
-	// Shutdown ImGui and destroy the GLFW window, then terminate GLFW altogether
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGlfw_Shutdown();
-	ImGui::DestroyContext();
-
-	// Destroy the Window and Terminate GLFW
-	glfwDestroyWindow(m_Window);
-	glfwTerminate();
-}
-
 void Fuse::Window::BeginFrame()
 {
 	// Create a new frame for ImGui
@@ -78,6 +47,21 @@ void Fuse::Window::EndFrame()
 	// Render ImGui
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+void Fuse::Window::DestroyWindow()
+{
+	// Destroy the Input Layer
+	m_InputLayer.OnDestroy();
+
+	// Shutdown ImGui and destroy the GLFW window, then terminate GLFW altogether
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
+
+	// Destroy the Window and Terminate GLFW
+	glfwDestroyWindow(m_Window);
+	glfwTerminate();
 }
 
 void Fuse::Window::Initialise() {}

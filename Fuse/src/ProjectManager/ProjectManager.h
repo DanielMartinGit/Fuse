@@ -15,7 +15,7 @@ namespace Fuse
 			~ProjectManager();
 
 		public:
-			static bool CreateNewProject(std::string name, std::string path);
+			static bool CreateNewProject(std::string& name, std::string& path);
 
 		public:
 			static void LoadProject(const char* path);

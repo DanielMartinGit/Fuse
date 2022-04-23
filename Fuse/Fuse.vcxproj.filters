@@ -1566,7 +1566,7 @@
     <ClInclude Include="src\EditorCamera\EditorCameraController\EditorCameraController.h">
       <Filter>src\EditorCamera\EditorCameraController</Filter>
     </ClInclude>
-    <ClInclude Include="src\FileDialogs\FileDialogs.h">
+    <ClInclude Include="src\Utils\FileDialogs\FileDialogs.h">
       <Filter>src\FileDialogs</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Framebuffer\Framebuffer.h">
@@ -1626,6 +1626,7 @@
     <ClInclude Include="src\Window\BaseWindow.h">
       <Filter>src\Window</Filter>
     </ClInclude>
+    <ClInclude Include="Vendor\ImGui\imgui_stdlib.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c">
@@ -1703,6 +1704,7 @@
     <ClCompile Include="src\Window\BaseWindow.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
+    <ClCompile Include="Vendor\ImGui\imgui_stdlib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\Libraries\Fuse\Fuse.lib">

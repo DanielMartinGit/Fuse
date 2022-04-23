@@ -9,7 +9,11 @@ void Editor::Menubar::OnImGuiRender()
 	{
 		if (ImGui::BeginMenu("File"))
 		{
-			ImGui::MenuItem("Open");
+			if (ImGui::MenuItem("Open Scene")) 
+			{ 
+				std::vector<std::string> extensions = { "Scene Files", "*.scene" };
+				FuseUtils::FileDialog::OpenFile("Open Scene File", ".", extensions, pfd::opt::none);
+			}
 			if (ImGui::MenuItem("Save")) { Fuse::ProjectManager::SaveProject(); }
 
 			ImGui::Separator();

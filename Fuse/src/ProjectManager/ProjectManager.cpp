@@ -3,7 +3,7 @@
 Fuse::ProjectManager::ProjectManager() {}
 Fuse::ProjectManager::~ProjectManager() {}
 
-bool Fuse::ProjectManager::CreateNewProject(std::string projectName, std::string destinationPath)
+bool Fuse::ProjectManager::CreateNewProject(std::string& projectName, std::string& destinationPath)
 {
 	if (std::filesystem::exists(destinationPath))
 	{
@@ -11,20 +11,21 @@ bool Fuse::ProjectManager::CreateNewProject(std::string projectName, std::string
 
 		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Creating Project!");
 
-		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName);
-		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Assets");
-		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Build");
-		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Library");
-		std::filesystem::create_directory((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Project Settings");
-		m_Project.m_ProjectFile = std::ofstream((std::string)destinationPath + "/" + (std::string)projectName + "/" + "Project Settings/" + (std::string)projectName + ".fuse");
+		std::filesystem::create_directory(destinationPath + "/" + projectName);
+		std::filesystem::create_directory(destinationPath + "/" + projectName + "/" + "Assets");
+		std::filesystem::create_directory(destinationPath + "/" + projectName + "/" + "Build");
+		std::filesystem::create_directory(destinationPath + "/" + projectName + "/" + "Library");
+		std::filesystem::create_directory(destinationPath + "/" + projectName + "/" + "Project Settings");
+
+		m_Project.m_ProjectFile = std::ofstream(destinationPath + "/" + projectName + "/" + "Project Settings/" + projectName + ".fuse");
 
 		Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Created Project!");
 
-		std::string projectPath = destinationPath + "/" + (std::string)projectName + "/Assets";
+		std::string projectPath = destinationPath + "/" + projectName + "/Assets";
+		m_Project.m_SceneFile = std::ofstream(projectPath + "/" + projectName + ".scene");
 
 		m_Project.m_ProjectName = projectName;
 		m_Project.m_ProjectPath = projectPath;
-		m_Project.m_SceneFile = std::ofstream(projectPath + "/" + (std::string)projectName + ".scene");
 
 		Editor::AssetBrowser::SetProjectPath(m_Project.m_ProjectPath);
 
@@ -71,6 +72,7 @@ void Fuse::ProjectManager::SaveScene()
 	}
 
 	std::string message = "Scene Saved with ";
+
 	message.append(std::to_string(view.size()) + " entities");
 	Editor::Console::PrintToConsole(Editor::MessageType::ACTION, message.c_str());
 

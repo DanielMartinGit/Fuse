@@ -16,11 +16,12 @@ namespace Fuse
 		public:
 			void InitialiseWindow(uint32_t width, uint32_t height, const char* windowTitle);
 			void InitialiseLayers();
-			void MainLoop();
 
 		public:
 			void BeginFrame();
 			void EndFrame();
+
+			void DestroyWindow();
 
 		public:
 			virtual void Initialise();

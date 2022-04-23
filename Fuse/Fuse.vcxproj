@@ -74,7 +74,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\De
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\STB;..\%prj.name\Vendor\JSON;..\%prj.name\Vendor;..\%prj.name\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\%prj.name\Vendor\Entt;..\%prj.name\Vendor\GLAD;..\%prj.name\Vendor\GLAD\KHR;..\%prj.name\Vendor\GLFW;..\%prj.name\Vendor\GLM;..\%prj.name\Vendor\ImGui;..\%prj.name\Vendor\ImGuizmo;..\%prj.name\Vendor\STB;..\%prj.name\Vendor\JSON;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
@@ -525,6 +525,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="Vendor\ImGui\imgui_impl_opengl3.h" />
     <ClInclude Include="Vendor\ImGui\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="Vendor\ImGui\imgui_internal.h" />
+    <ClInclude Include="Vendor\ImGui\imgui_stdlib.h" />
     <ClInclude Include="Vendor\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Vendor\ImGui\imstb_textedit.h" />
     <ClInclude Include="Vendor\ImGui\imstb_truetype.h" />
@@ -560,7 +561,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClInclude Include="src\ECS\Systems\RenderingSystem.h" />
     <ClInclude Include="src\EditorCamera\EditorCamera.h" />
     <ClInclude Include="src\EditorCamera\EditorCameraController\EditorCameraController.h" />
-    <ClInclude Include="src\FileDialogs\FileDialogs.h" />
+    <ClInclude Include="src\Utils\FileDialogs\FileDialogs.h" />
     <ClInclude Include="src\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="src\Graphics\Rendering\Renderer2D\Renderer2D.h" />
     <ClInclude Include="src\Graphics\Shader\Shader.h" />
@@ -589,6 +590,7 @@ IF EXIST ..\bin\Release-windows-x86_64\Fuse\Fuse.lib\ (xcopy /Q /E /Y /I ..\bin\
     <ClCompile Include="Vendor\ImGui\imgui_draw.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui_impl_glfw.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Vendor\ImGui\imgui_stdlib.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Vendor\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Vendor\ImGuizmo\GraphEditor.cpp" />

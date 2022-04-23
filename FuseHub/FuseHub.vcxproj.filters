@@ -12,16 +12,10 @@
     <ClInclude Include="src\Application\FuseHubApplication.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="src\Window\FuseHubWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application\FuseHubApplication.cpp">
       <Filter>Application</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Window\FuseHubWindow.cpp">
-      <Filter>Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

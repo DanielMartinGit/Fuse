@@ -1,8 +1,7 @@
 #include "FuseHubApplication.h"
 
 FuseHub::FuseHubApplication::FuseHubApplication()
-{ 
-	m_Option = m_HubOptions::PROJECTS;
+{
 	m_DockSpaceID = 0;
 
 	m_WindowFlags |= ImGuiWindowFlags_MenuBar | 
@@ -12,10 +11,45 @@ FuseHub::FuseHubApplication::FuseHubApplication()
 	ImGuiWindowFlags_NoBringToFrontOnFocus | 
 	ImGuiWindowFlags_NoTitleBar | 
 	ImGuiWindowFlags_NoDocking;
+
+	m_Option = m_HubOptions::PROJECTS;
 }
 FuseHub::FuseHubApplication::~FuseHubApplication() {}
 
-void FuseHub::FuseHubApplication::Render()
+void FuseHub::FuseHubApplication::Initialise()
+{
+	InitialiseWindow(1000, 550, "Fuse Hub");
+	MainLoop();
+}
+
+void FuseHub::FuseHubApplication::MainLoop()
+{
+	while (!glfwWindowShouldClose(m_Window))
+	{
+		ProcessInput();
+
+		Update(Fuse::Time::GetDeltaTime());
+
+		Render();
+
+		// Check events and Swap Buffers
+		glfwSwapBuffers(m_Window);
+		glfwPollEvents();
+	}
+
+	DestroyWindow();
+}
+
+void FuseHub::FuseHubApplication::ProcessInput()
+{
+	if (glfwGetKey(m_Window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		glfwSetWindowShouldClose(m_Window, true);
+	}
+}
+void FuseHub::FuseHubApplication::Update(double deltaTime) {}
+
+void FuseHub::FuseHubApplication::Render() 
 {
 	ImGui::Begin("Hub", 0, m_WindowFlags);
 

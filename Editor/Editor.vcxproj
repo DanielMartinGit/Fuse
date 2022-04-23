@@ -96,7 +96,7 @@
     <ClInclude Include="src\Panels\Resources\Resources.h" />
     <ClInclude Include="src\Panels\SceneHierarchy\SceneHierarchy.h" />
     <ClInclude Include="src\Panels\SceneViewport\SceneViewport.h" />
-    <ClInclude Include="src\EditorWindow\EditorWindow.h" />
+    <ClInclude Include="src\EditorApp\EditorApplication.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\Editor.cpp" />
@@ -110,7 +110,7 @@
     <ClCompile Include="src\Panels\Resources\Resources.cpp" />
     <ClCompile Include="src\Panels\SceneHierarchy\SceneHierarchy.cpp" />
     <ClCompile Include="src\Panels\SceneViewport\SceneViewport.cpp" />
-    <ClCompile Include="src\EditorWindow\EditorWindow.cpp" />
+    <ClCompile Include="src\EditorApp\EditorApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fuse\Fuse.vcxproj">

@@ -65,7 +65,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Fuse\Vendor\Libraries\GLFW;..\Fuse\Vendor\Libraries\Fuse;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -83,11 +84,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Application\FuseHubApplication.h" />
-    <ClInclude Include="src\Window\FuseHubWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application\FuseHubApplication.cpp" />
-    <ClCompile Include="src\Window\FuseHubWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fuse\Fuse.vcxproj">

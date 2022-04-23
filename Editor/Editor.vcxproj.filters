@@ -78,7 +78,7 @@
     <ClInclude Include="src\Panels\SceneViewport\SceneViewport.h">
       <Filter>Panels\SceneViewport</Filter>
     </ClInclude>
-    <ClInclude Include="src\EditorWindow\EditorWindow.h">
+    <ClInclude Include="src\EditorApp\EditorApplication.h">
       <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
@@ -114,7 +114,7 @@
     <ClCompile Include="src\Panels\SceneViewport\SceneViewport.cpp">
       <Filter>Panels\SceneViewport</Filter>
     </ClCompile>
-    <ClCompile Include="src\EditorWindow\EditorWindow.cpp">
+    <ClCompile Include="src\EditorApp\EditorApplication.cpp">
       <Filter>Window</Filter>
     </ClCompile>
   </ItemGroup>

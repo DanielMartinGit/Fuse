@@ -1,19 +1,25 @@
 #pragma once
 #include "../../../Fuse/src/FileDialogs/FileDialogs.h"
 #include "../../../Fuse/src/ProjectManager/ProjectManager.h"
+#include "../../../Fuse/src/Window/BaseWindow.h"
 
 namespace FuseHub
 {
 	enum class m_HubOptions { PROJECTS, INSTALLS, CREATEPROJECT, LOADPROJECT };
 
-	class FuseHubApplication
+	class FuseHubApplication : public Fuse::Window
 	{
 		public:
 			FuseHubApplication();
 			~FuseHubApplication();
 
 		public:
-			void Render();
+			void MainLoop();
+
+			void Initialise() override;
+			void ProcessInput() override;
+			void Update(double deltaTime) override;
+			void Render() override;
 
 		public:
 			void OnImGuiRenderProjects();
