@@ -1,5 +1,6 @@
 #pragma once
 #include <time.h>
+#include "../../Vendor/GLFW/glfw3.h"
 
 namespace Fuse
 {
@@ -17,7 +18,7 @@ namespace Fuse
 			bool isOnTimeout(unsigned long seconds) { return seconds >= elapsedTime(); }
 			unsigned long elapsedTime() { return ((unsigned long)clock() - m_BegTime) / CLOCKS_PER_SEC; }
 	
-		private:
+		private:			
 			unsigned long m_BegTime;
 	};
 }

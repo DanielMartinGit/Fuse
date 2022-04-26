@@ -41,7 +41,7 @@ namespace Fuse
 			{
 				Fuse::Renderer2D::Bind();
 				
-				m_EntityRenderer.Render(*Fuse::EntitySystem::GetWorld());
+				m_EntityRenderer.Render(*Fuse::EntitySystem::GetRegistry());
 
 				Fuse::ResourceManager::GetShaderProgram().SetUniformMatrix4("viewProjection", m_CameraController.GetCamera()->GetProjectionViewMatrix());
 				Fuse::Renderer2D::Unbind();
@@ -49,7 +49,7 @@ namespace Fuse
 
 			void OnSceneUnloaded()
 			{
-				m_EntitySystem.GetWorld()->clear();
+				m_EntitySystem.GetRegistry()->clear();
 			}
 
 		public:

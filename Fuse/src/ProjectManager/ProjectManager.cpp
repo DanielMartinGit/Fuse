@@ -64,7 +64,7 @@ void Fuse::ProjectManager::UnloadLoadedProject()
 
 void Fuse::ProjectManager::SaveScene()
 {
-	auto view = Fuse::EntitySystem::GetWorld()->view<Fuse::Entity>();
+	auto view = Fuse::EntitySystem::GetRegistry()->view<Fuse::Entity>();
 
 	for (auto entity : view)
 	{

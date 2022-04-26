@@ -4,6 +4,8 @@ Editor::Inspector::Inspector()
 {
 	m_CurrentItem = "";
 	m_Components = m_ComponentTypes::None;
+
+	m_DisplayComponents = false;
 }
 Editor::Inspector::~Inspector() {}
 
@@ -146,7 +148,14 @@ void Editor::Inspector::ShowComponents()
 
 			ImGui::SameLine();
 			ImGui::Checkbox("Active", &spriteComponent.GetActiveState());
-			ImGui::ImageButton((ImTextureID)spriteComponent.GetTexture(), ImVec2(25, 25));
+
+			if (ImGui::ImageButton((ImTextureID)spriteComponent.GetTexture(), ImVec2(25, 25)))
+			{
+				std::vector<std::string> extensions = { "Texture", "*.png", "*.jpg" };
+				FuseUtils::FileDialog::OpenFile("Select Texture", ".", extensions, pfd::opt::none);
+
+				spriteComponent.SetTexture(FuseUtils::FileDialog::GetSelectedFilePath().c_str());
+			}
 
 			ImGui::TreePop();
 		}

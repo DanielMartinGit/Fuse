@@ -23,8 +23,7 @@ void EditorUI::EditorApplication::ProcessInput(GLFWwindow* window) {}
 
 void EditorUI::EditorApplication::SetupScene()
 {
-	m_Scene = Fuse::Scene("Untitled Scene");
-	Fuse::SceneManager::OnSceneLoaded(m_Scene);
+	Fuse::SceneManager::OnSceneCreated("Untitled");
 
 	m_SceneViewport.LoadResources();
 	m_AssetBrowser.LoadResources();

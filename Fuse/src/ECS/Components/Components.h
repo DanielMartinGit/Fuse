@@ -73,6 +73,7 @@ namespace Fuse
 			{
 				m_Texture = 0;
 				SetTexture("Resources/Textures/Texture.png");
+				SetIsVisble(true);
 			}
 			~SpriteRenderer2D() {}
 
@@ -87,8 +88,8 @@ namespace Fuse
 
 		private:
 			bool m_Active;
-			uint32_t m_Texture;
 			bool m_IsVisible;
+			uint32_t m_Texture;
 	};
 
 	class BoxCollider2D

@@ -1627,6 +1627,8 @@
       <Filter>src\Window</Filter>
     </ClInclude>
     <ClInclude Include="Vendor\ImGui\imgui_stdlib.h" />
+    <ClInclude Include="src\Modules\Module.h" />
+    <ClInclude Include="src\Modules\ModuleHandler\ModuleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\GLAD\glad.c">
@@ -1705,6 +1707,7 @@
       <Filter>src\Window</Filter>
     </ClCompile>
     <ClCompile Include="Vendor\ImGui\imgui_stdlib.cpp" />
+    <ClCompile Include="src\Modules\ModuleHandler\ModuleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\Libraries\Fuse\Fuse.lib">

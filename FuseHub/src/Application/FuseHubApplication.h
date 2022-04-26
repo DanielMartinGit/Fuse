@@ -1,6 +1,4 @@
 #pragma once
-#include "../../../Fuse/src/FileDialogs/FileDialogs.h"
-#include "../../../Fuse/src/ProjectManager/ProjectManager.h"
 #include "../../../Fuse/src/Window/BaseWindow.h"
 
 namespace FuseHub

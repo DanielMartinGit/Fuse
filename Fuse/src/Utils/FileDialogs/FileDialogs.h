@@ -44,6 +44,8 @@ namespace FuseUtils
 				{
 					std::cout << filename << std::endl;
 				}
+
+				m_SelectedFilePath = selected[0];
 			}
 
 			// Options are None, Force Overwrite
@@ -55,8 +57,10 @@ namespace FuseUtils
 
 		public:
 			static std::string GetProjectPath() { return m_ProjectPath; }
+			static std::string GetSelectedFilePath() { return m_SelectedFilePath; }
 
 		private:
+			static inline std::string m_SelectedFilePath;
 			static inline std::string m_ProjectPath = "";
 	};
 }

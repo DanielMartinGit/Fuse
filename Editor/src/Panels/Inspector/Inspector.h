@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../../Fuse/src/Panels/BasePanel/Panel.h"
+#include "../../../../Fuse/src/Utils/FileDialogs/FileDialogs.h"
 #include "../../../../Editor/src/Panels/SceneHierarchy/SceneHierarchy.h"
 #include "../../../../Fuse/Vendor/Entt/entt.hpp"
 
@@ -26,7 +27,7 @@ namespace Editor
 
 		private:
 			m_ComponentTypes m_Components;
-			bool m_DisplayComponents = false;
 			const char* m_CurrentItem;
+			bool m_DisplayComponents;
 	};
 }

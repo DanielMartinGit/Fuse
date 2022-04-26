@@ -20,8 +20,7 @@ namespace Fuse
 		public:
 			void SetStyle()
 			{
-				// TODO - Uncomment with each build
-				//SetFont(m_FontPath);
+				SetFont(m_FontPath);
 
 				ImGui::GetStyle().WindowRounding = 5.3f;
 				ImGui::GetStyle().FrameRounding = 2.3f;

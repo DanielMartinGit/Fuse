@@ -40,7 +40,6 @@ namespace EditorUI
 
 		private:
 			Fuse::PanelManager m_PanelManager;
-			Fuse::Scene m_Scene;
 
 		private:
 			double m_CurrentTime;

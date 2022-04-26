@@ -9,7 +9,7 @@ namespace Fuse
 		public:
 			EntitySystem()
 			{ 
-				m_World = new entt::registry(); 
+				m_Registry = new entt::registry();
 				m_EntityCount = 0;
 			}
 			~EntitySystem() {}
@@ -17,7 +17,7 @@ namespace Fuse
 		public:
 			static entt::entity& OnEntityAddedWithTransform()
 			{
-				auto entity = m_World->create();
+				auto entity = m_Registry->create();
 
 				Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Entity Added to Scene");
 				
@@ -33,7 +33,7 @@ namespace Fuse
 
 			static entt::entity& OnEntityAddedWithTransformAndSprite()
 			{
-				auto entity = m_World->create();
+				auto entity = m_Registry->create();
 
 				Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Entity Added to Scene");
 
@@ -50,7 +50,7 @@ namespace Fuse
 
 			static entt::entity& OnEmptyEntityAdded()
 			{
-				auto entity = m_World->create();
+				auto entity = m_Registry->create();
 
 				Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Empty Entity Added to Scene");
 
@@ -66,11 +66,11 @@ namespace Fuse
 			template<typename T>
 			static void OnComponentAdded(entt::entity& entity)
 			{
-				bool hasComponent = m_World->any_of<T>(entity);
+				bool hasComponent = m_Registry->any_of<T>(entity);
 
 				if (!hasComponent)
 				{
-					m_World->emplace<T>(entity);
+					m_Registry->emplace<T>(entity);
 					Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Component Added");
 				}
 				else
@@ -82,11 +82,11 @@ namespace Fuse
 			template<typename T>
 			static void OnComponentRemoved(entt::entity& entity)
 			{
-				bool hasComponent = m_World->any_of<T>(entity);
+				bool hasComponent = m_Registry->any_of<T>(entity);
 
 				if (hasComponent)
 				{
-					m_World->erase<T>(entity);
+					m_Registry->erase<T>(entity);
 					Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Component Removed");
 				}
 				else
@@ -98,11 +98,11 @@ namespace Fuse
 			template<typename T>
 			static T& GetComponent(entt::entity& entity)
 			{
-				bool hasComponent = m_World->any_of<T>(entity);
+				bool hasComponent = m_Registry->any_of<T>(entity);
 
 				if (hasComponent)
 				{
-					return m_World->get<T>(entity);
+					return m_Registry->get<T>(entity);
 					Editor::Console::PrintToConsole(Editor::MessageType::ACTION, "Got Component from Entity");
 				}
 			}
@@ -110,22 +110,22 @@ namespace Fuse
 			template<typename T>
 			static bool HasComponent(entt::entity& entity)
 			{
-				return m_World->any_of<T>(entity);
+				return m_Registry->any_of<T>(entity);
 			}
 
 			static void OnEntityRemoved(entt::entity& entity)
 			{
-				if (m_World->valid(entity))
+				if (m_Registry->valid(entity))
 				{
-					m_World->destroy(entity);
+					m_Registry->destroy(entity);
 				}
 			}
 
-			static size_t GetEntities() { return m_World->alive(); }
-			static entt::registry* GetWorld() { return m_World; }
+			static size_t GetEntities() { return m_Registry->alive(); }
+			static entt::registry* GetRegistry() { return m_Registry; }
 
 		private:
-			inline static entt::registry* m_World;
+			inline static entt::registry* m_Registry;
 
 		private:
 			inline static int m_EntityCount;

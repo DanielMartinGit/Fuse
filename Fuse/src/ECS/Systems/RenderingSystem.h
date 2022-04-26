@@ -18,12 +18,16 @@ namespace Fuse
 
 				for (auto& entity : view)
 				{
-					auto& spriteRenderer = view.get<Fuse::SpriteRenderer2D>(entity);
-					auto& transform = view.get<Fuse::Transform>(entity);
+					m_SpriteRenderer = view.get<Fuse::SpriteRenderer2D>(entity);
+					m_Transform = view.get<Fuse::Transform>(entity);
 					
-					if(spriteRenderer.GetActiveState())
-						Fuse::Renderer2D::DrawSprite(transform, spriteRenderer.GetTexture());
+					if(m_SpriteRenderer.GetActiveState())
+						Fuse::Renderer2D::DrawSprite(m_Transform, m_SpriteRenderer.GetTexture());
 				}
 			}
+
+		private:
+			Fuse::SpriteRenderer2D m_SpriteRenderer;
+			Fuse::Transform m_Transform;
 	};
 }
