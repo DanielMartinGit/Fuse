@@ -40,8 +40,7 @@ Navigate to bin/Debug-platform-architecture/Editor and run the Editor.exe <br/>
 Trello - https://trello.com/b/YQkfvOEg/fuse <br/>
 
 # Screenshots
-![image](https://user-images.githubusercontent.com/19360613/154978902-00b3bac9-337c-42a4-8c4d-bd36be696ac6.png)
-![image](https://user-images.githubusercontent.com/19360613/154978983-8dc44004-ed79-4099-bfe4-18182a86b6e2.png)
-![image](https://user-images.githubusercontent.com/19360613/154979064-a80356bf-5057-4f45-bf6e-3bef99844c59.png)
+![FuseShowoff#1](https://user-images.githubusercontent.com/19360613/165517797-007e27f7-8d73-47bb-a0df-9b4d0e72dad2.png)
+
 
 
